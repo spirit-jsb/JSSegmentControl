@@ -77,6 +77,18 @@ public class JSSegmentControl: UIView {
     public func selectedIndex(_ index: Int) {
         self.titleView.selectedIndex(index)
     }
+    
+    public func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: () -> ()) {
+        self.titleView = titleView
+        self.contentView = contentView
+        
+        self.titleView.titleDataSource = self
+        self.titleView.titleDelegate = self
+        self.contentView.contentDataSource = self
+        self.contentView.contentDelegate = self
+        
+        completionHandle()
+    }
 
     // MARK: 重写父类方法
     public override func didMoveToSuperview() {
