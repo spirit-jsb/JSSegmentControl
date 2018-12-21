@@ -39,6 +39,11 @@ public class JSSegmentControl: UIView {
     }
     
     // MARK: 初始化
+    public init(segmentStyle style: JSSegmentControlStyle) {
+        self.style = style
+        super.init(frame: .zero)
+    }
+
     public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
         self.style = style
         self.parent = parent
@@ -76,6 +81,11 @@ public class JSSegmentControl: UIView {
     // MARK: 重写父类方法
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
+        self.setupSubviews()
+    }
+    
+    // MARK: 设置方法
+    private func setupSubviews() {
         self.addSubview(self.titleView)
         self.addSubview(self.contentView)
     }
