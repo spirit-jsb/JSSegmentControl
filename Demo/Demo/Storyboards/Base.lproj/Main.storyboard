@@ -32,6 +32,22 @@
             </objects>
             <point key="canvasLocation" x="1076" y="-539"/>
         </scene>
+        <!--自定义位置-->
+        <scene sceneID="Avi-X2-9Uy">
+            <objects>
+                <viewController id="IPw-8C-cvb" customClass="Test8ViewController" customModule="JSSegmentControl_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BD7-3e-Nme">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ed3-bQ-18h"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="自定义位置" id="umC-0P-SXX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRe-tB-g53" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1778" y="-544"/>
+        </scene>
         <!--示例代码-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -124,6 +140,18 @@
                                     <segue destination="9n2-bX-Lzj" kind="show" id="WpY-Dh-Z92"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2c-2P-6M1">
+                                <rect key="frame" x="0.0" y="399" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wSC-E5-h5w"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="自定义位置"/>
+                                <connections>
+                                    <segue destination="IPw-8C-cvb" kind="show" id="d8I-UM-Xfe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -140,9 +168,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6jV-JL-1QV" secondAttribute="trailing" id="Khr-pu-rRK"/>
                             <constraint firstItem="7oO-wE-UCM" firstAttribute="top" secondItem="VEY-4l-ZeC" secondAttribute="bottom" constant="1" id="Ls1-ij-dkT"/>
                             <constraint firstItem="6jV-JL-1QV" firstAttribute="top" secondItem="41n-Wx-E4J" secondAttribute="bottom" constant="1" id="Pth-Tm-NWh"/>
+                            <constraint firstItem="Z2c-2P-6M1" firstAttribute="top" secondItem="1C6-Xm-VGi" secondAttribute="bottom" constant="1" id="S01-xZ-Tii"/>
                             <constraint firstItem="41n-Wx-E4J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SjK-d8-E8S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="41n-Wx-E4J" secondAttribute="trailing" id="VV3-VX-BJC"/>
+                            <constraint firstItem="Z2c-2P-6M1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a57-WA-tvT"/>
                             <constraint firstItem="41n-Wx-E4J" firstAttribute="top" secondItem="Bub-b2-a1U" secondAttribute="bottom" constant="1" id="jx1-VG-DAn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z2c-2P-6M1" secondAttribute="trailing" id="mlO-Lr-9T2"/>
                             <constraint firstItem="6jV-JL-1QV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nKL-KH-Jt6"/>
                             <constraint firstItem="Bub-b2-a1U" firstAttribute="top" secondItem="KFw-rm-4zz" secondAttribute="bottom" constant="1" id="nMy-wg-iCE"/>
                             <constraint firstItem="VEY-4l-ZeC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nX3-Ua-dXW"/>
