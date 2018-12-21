@@ -18,6 +18,12 @@ public class JSTitleContainerView: UIView {
         }
     }
     
+    public var segmentTitleHighlightedTextColor: UIColor? {
+        willSet {
+            self.segmentTitleLabel.highlightedTextColor = newValue
+        }
+    }
+    
     public var segmentImage: UIImage? {
         willSet {
             self.segmentImageView.image = newValue
