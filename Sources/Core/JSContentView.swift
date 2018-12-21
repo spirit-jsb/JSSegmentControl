@@ -134,12 +134,20 @@ public class JSContentView: UIView {
             currentViewController.view.frame = self.bounds
         }
     }
+    
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        self.setupSubviews()
+    }
 
     // MARK: 设置方法
     private func setupContentView() {
         guard !self.parent!.shouldAutomaticallyForwardAppearanceMethods else {
             fatalError("请重写 \(self.parent.self!) 的 shouldAutomaticallyForwardAppearanceMethods 函数，并返回 false")
         }
+    }
+    
+    private func setupSubviews() {
         self.addSubview(self.contentCollectionView)
     }
     
