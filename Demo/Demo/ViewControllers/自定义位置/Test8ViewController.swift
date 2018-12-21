@@ -17,7 +17,7 @@ class Test8ViewController: UIViewController {
     
     lazy var segment = JSSegmentControl(segmentStyle: self.style)
     lazy var titleView = JSTitleView(frame: CGRect(origin: .zero, size: CGSize(width: 160.0, height: 30.0)), segmentStyle: self.style)
-    lazy var contentView = JSContentView(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: self.view.bounds.width, height: self.view.bounds.height - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
+    lazy var contentView = JSContentView(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
     
     // MARK:
     override func viewDidLoad() {

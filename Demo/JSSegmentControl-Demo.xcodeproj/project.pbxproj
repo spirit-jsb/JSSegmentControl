@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		502474E621CCCD19008B9BAF /* Test8ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502474E521CCCD19008B9BAF /* Test8ViewController.swift */; };
+		502474E921CCFDD3008B9BAF /* Test9ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502474E821CCFDD3008B9BAF /* Test9ViewController.swift */; };
+		502474EB21CD2DD0008B9BAF /* Test9TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502474EA21CD2DD0008B9BAF /* Test9TableView.swift */; };
+		502474EE21CD3522008B9BAF /* Test9TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502474EC21CD3522008B9BAF /* Test9TableViewController.swift */; };
+		502474EF21CD3522008B9BAF /* Test9TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 502474ED21CD3522008B9BAF /* Test9TableViewController.xib */; };
+		502474F221CD3534008B9BAF /* Test9CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502474F021CD3534008B9BAF /* Test9CollectionViewController.swift */; };
+		502474F321CD3534008B9BAF /* Test9CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 502474F121CD3534008B9BAF /* Test9CollectionViewController.xib */; };
 		50386FC321CBA2B400B9524F /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386FC221CBA2B400B9524F /* Test1ViewController.swift */; };
 		50386FC721CBA37200B9524F /* Child1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386FC521CBA37200B9524F /* Child1ViewController.swift */; };
 		50386FC821CBA37200B9524F /* Child1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50386FC621CBA37200B9524F /* Child1ViewController.xib */; };
@@ -46,6 +53,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		502474E521CCCD19008B9BAF /* Test8ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test8ViewController.swift; sourceTree = "<group>"; };
+		502474E821CCFDD3008B9BAF /* Test9ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test9ViewController.swift; sourceTree = "<group>"; };
+		502474EA21CD2DD0008B9BAF /* Test9TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test9TableView.swift; sourceTree = "<group>"; };
+		502474EC21CD3522008B9BAF /* Test9TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test9TableViewController.swift; sourceTree = "<group>"; };
+		502474ED21CD3522008B9BAF /* Test9TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test9TableViewController.xib; sourceTree = "<group>"; };
+		502474F021CD3534008B9BAF /* Test9CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test9CollectionViewController.swift; sourceTree = "<group>"; };
+		502474F121CD3534008B9BAF /* Test9CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test9CollectionViewController.xib; sourceTree = "<group>"; };
 		50386FC221CBA2B400B9524F /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
 		50386FC521CBA37200B9524F /* Child1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child1ViewController.swift; sourceTree = "<group>"; };
 		50386FC621CBA37200B9524F /* Child1ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Child1ViewController.xib; sourceTree = "<group>"; };
@@ -83,6 +97,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		502474E421CCCCBF008B9BAF /* 自定义位置 */ = {
+			isa = PBXGroup;
+			children = (
+				502474E521CCCD19008B9BAF /* Test8ViewController.swift */,
+			);
+			path = "自定义位置";
+			sourceTree = "<group>";
+		};
+		502474E721CCFD87008B9BAF /* 复杂的自定义位置 */ = {
+			isa = PBXGroup;
+			children = (
+				502474E821CCFDD3008B9BAF /* Test9ViewController.swift */,
+				502474EA21CD2DD0008B9BAF /* Test9TableView.swift */,
+				502474EC21CD3522008B9BAF /* Test9TableViewController.swift */,
+				502474ED21CD3522008B9BAF /* Test9TableViewController.xib */,
+				502474F021CD3534008B9BAF /* Test9CollectionViewController.swift */,
+				502474F121CD3534008B9BAF /* Test9CollectionViewController.xib */,
+			);
+			path = "复杂的自定义位置";
+			sourceTree = "<group>";
+		};
 		50386FC121CBA29700B9524F /* 遮盖+缩放+滚动条 */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +254,8 @@
 				50AD5AFE21CBDCC7009FBA22 /* 指定Container大小 */,
 				50AD5B0121CBE311009FBA22 /* 更改下标 */,
 				50AD5B0421CBE646009FBA22 /* 刷新内容和标题 */,
+				502474E421CCCCBF008B9BAF /* 自定义位置 */,
+				502474E721CCFD87008B9BAF /* 复杂的自定义位置 */,
 				50C02E6421B96CE6003669D3 /* ViewController.swift */,
 			);
 			path = ViewControllers;
@@ -307,11 +344,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502474F321CD3534008B9BAF /* Test9CollectionViewController.xib in Resources */,
 				50C02E6921B96CE6003669D3 /* LaunchScreen.storyboard in Resources */,
 				50386FC821CBA37200B9524F /* Child1ViewController.xib in Resources */,
 				50386FCC21CBA38000B9524F /* Child2ViewController.xib in Resources */,
 				50C02E6B21B96CE6003669D3 /* Assets.xcassets in Resources */,
 				50C02E6A21B96CE6003669D3 /* Main.storyboard in Resources */,
+				502474EF21CD3522008B9BAF /* Test9TableViewController.xib in Resources */,
 				50386FD021CBA38E00B9524F /* Child3ViewController.xib in Resources */,
 				50386FD421CBA41300B9524F /* ShowViewController.xib in Resources */,
 			);
@@ -324,15 +363,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502474F221CD3534008B9BAF /* Test9CollectionViewController.swift in Sources */,
 				50386FC321CBA2B400B9524F /* Test1ViewController.swift in Sources */,
+				502474EE21CD3522008B9BAF /* Test9TableViewController.swift in Sources */,
 				50AD5B0021CBDCEF009FBA22 /* Test5ViewController.swift in Sources */,
 				50AD5B0621CBE670009FBA22 /* Test7ViewController.swift in Sources */,
 				50386FD321CBA41300B9524F /* ShowViewController.swift in Sources */,
+				502474E921CCFDD3008B9BAF /* Test9ViewController.swift in Sources */,
 				50386FC721CBA37200B9524F /* Child1ViewController.swift in Sources */,
 				50C02E6D21B96CE6003669D3 /* AppDelegate.swift in Sources */,
 				50386FCF21CBA38E00B9524F /* Child3ViewController.swift in Sources */,
+				502474E621CCCD19008B9BAF /* Test8ViewController.swift in Sources */,
 				50AD5AF821CBD70A009FBA22 /* Test2ViewController.swift in Sources */,
 				50386FCB21CBA38000B9524F /* Child2ViewController.swift in Sources */,
+				502474EB21CD2DD0008B9BAF /* Test9TableView.swift in Sources */,
 				50AD5AFD21CBDB2E009FBA22 /* Test4ViewController.swift in Sources */,
 				50AD5B0321CBE329009FBA22 /* Test6ViewController.swift in Sources */,
 				50AD5AFA21CBD714009FBA22 /* Test3ViewController.swift in Sources */,
