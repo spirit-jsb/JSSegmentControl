@@ -14,25 +14,32 @@ class Test5ViewController: UIViewController {
     // MAKR:
     var dataSource = [["title": "全部",
                        "normal_image": "parcels_all_normal",
-                       "selected_image": "parcels_all_selected"],
+                       "selected_image": "parcels_all_selected",
+                       "color": "parcels_all_selected_color"],
                       ["title": "待取件",
                        "normal_image": "parcels_pickup_normal",
-                       "selected_image": "parcels_pickup_selected"],
+                       "selected_image": "parcels_pickup_selected",
+                       "color": "parcels_pickup_selected_color"],
                       ["title": "待投递",
                        "normal_image": "parcels_dropOff_normal",
-                       "selected_image": "parcels_dropOff_selected"],
+                       "selected_image": "parcels_dropOff_selected",
+                       "color": "parcels_dropOff_selected_color"],
                       ["title": "待收货",
                        "normal_image": "parcels_receipt_normal",
-                       "selected_image": "parcels_receipt_selected"],
+                       "selected_image": "parcels_receipt_selected",
+                       "color": "parcels_receipt_selected_color"],
                       ["title": "运送中",
                        "normal_image": "parcels_transit_normal",
-                       "selected_image": "parcels_transit_selected"],
+                       "selected_image": "parcels_transit_selected",
+                       "color": "parcels_transit_selected_color"],
                       ["title": "已送达",
                        "normal_image": "parcels_served_normal",
-                       "selected_image": "parcels_served_selected"],
+                       "selected_image": "parcels_served_selected",
+                       "color": "parcels_served_selected_color"],
                       ["title": "已取消",
                        "normal_image": "parcels_voided_normal",
-                       "selected_image": "parcels_voided_selected"]]
+                       "selected_image": "parcels_voided_selected",
+                       "color": "parcels_voided_selected_color"]]
     var style = JSSegmentControlStyle()
     
     // MARK:
@@ -74,6 +81,11 @@ extension Test5ViewController: JSSegmentControlDataSource {
         title?.segmentTitle = self.dataSource[index]["title"]
         title?.segmentImage = UIImage(named: self.dataSource[index]["normal_image"]!)
         title?.segmentHighlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
+        if #available(iOS 11.0, *) {
+            title?.segmentTitleHighlightedTextColor = UIColor(named: self.dataSource[index]["color"]!)
+        } else {
+            // Fallback on earlier versions
+        }
         title?.segmentBadge = index
         return title!
     }
