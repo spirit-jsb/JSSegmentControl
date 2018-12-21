@@ -39,6 +39,11 @@ public class JSSegmentControl: UIView {
     }
     
     // MARK: 初始化
+    public init(segmentStyle style: JSSegmentControlStyle) {
+        self.style = style
+        super.init(frame: .zero)
+    }
+
     public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
         self.style = style
         self.parent = parent
@@ -72,10 +77,27 @@ public class JSSegmentControl: UIView {
     public func selectedIndex(_ index: Int) {
         self.titleView.selectedIndex(index)
     }
+    
+    public func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: () -> ()) {
+        self.titleView = titleView
+        self.contentView = contentView
+        
+        self.titleView.titleDataSource = self
+        self.titleView.titleDelegate = self
+        self.contentView.contentDataSource = self
+        self.contentView.contentDelegate = self
+        
+        completionHandle()
+    }
 
     // MARK: 重写父类方法
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
+        self.setupSubviews()
+    }
+    
+    // MARK: 设置方法
+    private func setupSubviews() {
         self.addSubview(self.titleView)
         self.addSubview(self.contentView)
     }

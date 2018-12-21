@@ -20,10 +20,12 @@
 ![指定Container大小](./Images/指定Container大小.gif)
 ![更改下标](./Images/更改下标.gif)
 ![刷新内容和标题](./Images/刷新内容和标题.gif)
+![自定义位置](./Images/自定义位置.gif)
+![复杂的自定义位置](./Images/复杂的自定义位置.gif)
 
 ## 注意事项
 
-⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
+⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
 
 ## 限制条件
 * **iOS 9.0** and Up
@@ -35,14 +37,14 @@
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.0.0'
+pod 'JSSegmentControl', '~> 1.0.1'
 ```
 
 ## 待完成
 
 - [ ] 增加 `RxSwift` 接口，便于通过 `RxSwift` 管理数据状态。
-- [ ] 增加自定义 `Title View` 和 `Content View` 位置的方法。
-- [ ] 增加允许动态修改 `Title Container View` 中 `Title` 颜色的方法。
+- [x] 增加自定义 `Title View` 和 `Content View` 位置的方法。
+- [x] 增加允许动态修改 `Title Container View` 中 `Title` 颜色的方法。
 
 ## 作者
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JSTitleView: UIView {
+public class JSTitleView: UIView {
 
     // MARK: 属性
     weak var titleDataSource: JSTitleDataSource?
@@ -52,7 +52,7 @@ class JSTitleView: UIView {
     }
     
     // MARK: 初始化
-    init(frame: CGRect, segmentStyle style: JSSegmentControlStyle) {
+    public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle) {
         self.style = style
         super.init(frame: frame)
         self.setupTitleView()
@@ -157,13 +157,13 @@ class JSTitleView: UIView {
     }
     
     // MARK: 重写父类方法
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         self.makeConstraints()
         self.setupCurrentSelectScale()
     }
 
-    override func didMoveToSuperview() {
+    public override func didMoveToSuperview() {
         super.didMoveToSuperview()
         self.setupSubviews()
         self.setupCurrentSelect()
