@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JSContentView: UIView {
+public class JSContentView: UIView {
 
     // MARK: 属性
     weak var contentDataSource: JSContentDataSource?
@@ -57,7 +57,7 @@ class JSContentView: UIView {
     }
 
     // MARK: 初始化
-    init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
+    public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
         self.style = style
         self.parent = parent
         super.init(frame: frame)
@@ -128,7 +128,7 @@ class JSContentView: UIView {
     }
     
     // MARK: 重写父类方法
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         if let currentViewController = self.currentViewController {
             currentViewController.view.frame = self.bounds
@@ -230,17 +230,17 @@ class JSContentView: UIView {
 extension JSContentView: UICollectionViewDataSource {
     
     // MARK: UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.dataSourceCount
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.identifier, for: indexPath)
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         return cell
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 }
@@ -248,11 +248,11 @@ extension JSContentView: UICollectionViewDataSource {
 extension JSContentView: UICollectionViewDelegate {
     
     // MARK: UICollectionViewDelegate
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.setupChildViewController(to: cell, atIndex: indexPath.row)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if !self.isForbidAdjustPosition {
             if self.currentIndex == indexPath.row {
                 let oldViewController = self.childViewControllers[self.oldIndex]
@@ -295,7 +295,7 @@ extension JSContentView: UICollectionViewDelegate {
 extension JSContentView: UIScrollViewDelegate {
     
     // MARK: UIScrollViewDelegate
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.isForbidAdjustPosition ||
            scrollView.contentOffset.x <= 0.0 ||
            scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.bounds.width {
@@ -328,13 +328,13 @@ extension JSContentView: UIScrollViewDelegate {
         self.contentDelegate?.contentSelectedAnimated(withProgress: progress, from: self.oldIndex, to: self.currentIndex)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentIndex = Int(scrollView.contentOffset.x / self.bounds.width)
         self.contentDelegate?.contentSelectedAnimated(withProgress: 1.0, from: currentIndex, to: currentIndex)
         self.contentDelegate?.contentSelectedScrollAnimated(to: currentIndex)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.oldOffsetX = scrollView.contentOffset.x
         self.isForbidAdjustPosition = false
     }
