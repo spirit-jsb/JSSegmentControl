@@ -25,7 +25,7 @@
 
 ## 注意事项
 
-⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
+⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
 
 ## 限制条件
 * **iOS 9.0** and Up
