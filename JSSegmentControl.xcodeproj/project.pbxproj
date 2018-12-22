@@ -58,6 +58,13 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		509409E121CDE927009E8DBE /* RxSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RxSegmentControl;
+			sourceTree = "<group>";
+		};
 		50A2707921CA8F58008EE1E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				50828D1C21C296D6001FFB21 /* Core */,
+				509409E121CDE927009E8DBE /* RxSegmentControl */,
 				50C02E3221B96C2C003669D3 /* JSSegmentControl.h */,
 				50C02E3321B96C2C003669D3 /* Info.plist */,
 			);
@@ -116,6 +124,7 @@
 				50C02E2221B96B86003669D3 /* Sources */,
 				50C02E2321B96B86003669D3 /* Frameworks */,
 				50C02E2421B96B86003669D3 /* Resources */,
+				509409E021CDE84D009E8DBE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -168,6 +177,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		509409E021CDE84D009E8DBE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50C02E2221B96B86003669D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -189,6 +219,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -254,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -321,6 +353,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,6 +383,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
