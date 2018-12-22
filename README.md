@@ -27,17 +27,23 @@
 
 ⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
 
+## Swift 版本依赖
+| Swift | JSSegmentControl |
+| ------| -----------------|
+| 4.0   | 1.0.0~1.0.1      |
+| 4.2   | >= 1.1.0         |
+
 ## 限制条件
 * **iOS 9.0** and Up
 * **Xcode 10.0** and Up
-* **Swift Version = 4.0**
+* **Swift Version = 4.2**
 
 ## 安装
 
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.0.1'
+pod 'JSSegmentControl', '~> 1.1.0'
 ```
 
 ## 待完成
