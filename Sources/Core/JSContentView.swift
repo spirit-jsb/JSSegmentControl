@@ -122,9 +122,9 @@ public class JSContentView: UIView {
     }
     
     class func removeChildViewController(_ childViewController: UIViewController) {
-        childViewController.willMove(toParentViewController: nil)
+        childViewController.willMove(toParent: nil)
         childViewController.view.removeFromSuperview()
-        childViewController.removeFromParentViewController()
+        childViewController.removeFromParent()
     }
     
     // MARK: 重写父类方法
@@ -171,10 +171,10 @@ public class JSContentView: UIView {
             fatalError("禁止添加 UINavigationController 类型的控制器")
         }
         
-        self.parent?.addChildViewController(self.currentViewController!)
+        self.parent?.addChild(self.currentViewController!)
         self.currentViewController?.view.frame = cell.contentView.bounds
         cell.contentView.addSubview(self.currentViewController!.view)
-        self.currentViewController?.didMove(toParentViewController: self.parent)
+        self.currentViewController?.didMove(toParent: self.parent)
         
         if self.isFirstLoading {
             self.willAppearAtIndex(index)
@@ -189,11 +189,11 @@ public class JSContentView: UIView {
     
     // MARK: 私有方法
     private func addNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveMemoryWarningHandle(_:)), name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveMemoryWarningHandle(_:)), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
     
     private func removeNotification() {
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
     
     private func willAppearAtIndex(_ index: Int) {
