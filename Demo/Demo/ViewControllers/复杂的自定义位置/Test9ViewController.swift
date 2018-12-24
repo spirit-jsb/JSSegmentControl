@@ -54,6 +54,10 @@ class Test9ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.tableView)
+        
+        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
+        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
+        
         self.segment.dataSource = self
         self.segment.delegate = self
     }
@@ -73,9 +77,7 @@ extension Test9ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "identifier", for: indexPath)
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-        self.segment.configuration(titleView: self.titleView, contentView: self.contentView, completionHandle: {
-            cell.contentView.addSubview(self.contentView)
-        })
+        cell.contentView.addSubview(self.contentView)
         return cell
     }
 }
@@ -110,13 +112,10 @@ extension Test9ViewController: JSSegmentControlDataSource {
     }
 
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        var title = segmentControl.dequeueReusableTitle(at: index)
-        if title == nil {
-            title = JSTitleContainerView(style: self.style.titleContainerStyle)
-        }
-        title?.segmentTitle = self.dataSource[index]
-        title?.segmentBadge = 0
-        return title!
+        let title = segmentControl.dequeueReusableTitle(at: index)
+        title.segmentTitle = self.dataSource[index]
+        title.segmentBadge = 0
+        return title
     }
 
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {

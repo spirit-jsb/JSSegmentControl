@@ -57,13 +57,13 @@ public class JSTitleContainerView: UIView {
         }
     }
     
-    public var scale: CGFloat = 1.0 {
+    var scale: CGFloat = 1.0 {
         willSet {
             self.transform = CGAffineTransform(scaleX: newValue, y: newValue)
         }
     }
     
-    public var containerSize: CGSize {
+    var containerSize: CGSize {
         let margin = self.style.margin
         
         let imageViewSize = self.segmentImageView.bounds.size

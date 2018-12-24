@@ -27,6 +27,11 @@
 
 ⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
 
+⚠️ **注意事项：请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️
+```swift
+func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil)
+```
+
 ## 限制条件
 * **iOS 9.0** and Up
 * **Xcode 10.0** and Up
@@ -37,7 +42,7 @@
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.0.1'
+pod 'JSSegmentControl', '~> 1.0.2'
 ```
 
 ## 待完成

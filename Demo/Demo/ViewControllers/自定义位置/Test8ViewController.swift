@@ -30,13 +30,14 @@ class Test8ViewController: UIViewController {
         self.style.titleStyle.isShowMasks = true
         self.style.titleStyle.maskColor = UIColor.red
         
-        self.segment.dataSource = self
-        self.segment.delegate = self
-        
+        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
         self.segment.configuration(titleView: self.titleView, contentView: self.contentView, completionHandle: {
             self.navigationItem.titleView = self.titleView
             self.view.addSubview(self.contentView)
         })
+        
+        self.segment.dataSource = self
+        self.segment.delegate = self
     }
     
     // MAKR:
@@ -52,13 +53,10 @@ extension Test8ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        var title = segmentControl.dequeueReusableTitle(at: index)
-        if title == nil {
-            title = JSTitleContainerView(style: self.style.titleContainerStyle)
-        }
-        title?.segmentTitle = self.dataSource[index]
-        title?.segmentBadge = 0
-        return title!
+        let title = segmentControl.dequeueReusableTitle(at: index)
+        title.segmentTitle = self.dataSource[index]
+        title.segmentBadge = 0
+        return title
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {
