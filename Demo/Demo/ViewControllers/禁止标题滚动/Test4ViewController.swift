@@ -45,14 +45,11 @@ extension Test4ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        var title = segmentControl.dequeueReusableTitle(at: index)
-        if title == nil {
-            title = JSTitleContainerView(style: self.style.titleContainerStyle)
-        }
-        title?.segmentTitle = self.dataSource[index]
-        title?.segmentImage = UIImage(named: "segment_background_normal")
-        title?.segmentHighlightedImage = UIImage(named: "segment_background_selected")
-        return title!
+        let title = segmentControl.dequeueReusableTitle(at: index)
+        title.segmentTitle = self.dataSource[index]
+        title.segmentImage = UIImage(named: "segment_background_normal")
+        title.segmentHighlightedImage = UIImage(named: "segment_background_selected")
+        return title
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {
