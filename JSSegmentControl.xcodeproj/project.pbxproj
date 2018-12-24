@@ -212,17 +212,17 @@
 			isa = PBXGroup;
 			children = (
 				50409C1B21D0E1A300A8A3A9 /* ViewController.swift */,
-				50409C1C21D0E1A300A8A3A9 /* 更改下标 */,
-				50409C1E21D0E1A300A8A3A9 /* 遮盖+缩放+滚动条 */,
-				50409C2021D0E1A300A8A3A9 /* 禁止标题滚动 */,
-				50409C2221D0E1A300A8A3A9 /* 遮盖+缩放 */,
-				50409C2421D0E1A300A8A3A9 /* 复杂的自定义位置 */,
-				50409C2B21D0E1A300A8A3A9 /* 自定义位置 */,
-				50409C2D21D0E1A300A8A3A9 /* 滚动条+缩放 */,
 				50409C2F21D0E1A300A8A3A9 /* ChildViewControllers */,
-				50409C3821D0E1A300A8A3A9 /* 刷新内容和标题 */,
-				50409C3A21D0E1A300A8A3A9 /* RxSegmentControl */,
+				50409C1E21D0E1A300A8A3A9 /* 遮盖+缩放+滚动条 */,
+				50409C2221D0E1A300A8A3A9 /* 遮盖+缩放 */,
+				50409C2D21D0E1A300A8A3A9 /* 滚动条+缩放 */,
+				50409C2021D0E1A300A8A3A9 /* 禁止标题滚动 */,
 				50409C4521D0E1A300A8A3A9 /* 指定Container大小 */,
+				50409C1C21D0E1A300A8A3A9 /* 更改下标 */,
+				50409C3821D0E1A300A8A3A9 /* 刷新内容和标题 */,
+				50409C2B21D0E1A300A8A3A9 /* 自定义位置 */,
+				50409C2421D0E1A300A8A3A9 /* 复杂的自定义位置 */,
+				50409C3A21D0E1A300A8A3A9 /* RxSegmentControl */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,12 +262,12 @@
 		50409C2421D0E1A300A8A3A9 /* 复杂的自定义位置 */ = {
 			isa = PBXGroup;
 			children = (
-				50409C2521D0E1A300A8A3A9 /* Test9TableView.swift */,
-				50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */,
-				50409C2721D0E1A300A8A3A9 /* Test9TableViewController.xib */,
-				50409C2821D0E1A300A8A3A9 /* Test9TableViewController.swift */,
-				50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */,
 				50409C2A21D0E1A300A8A3A9 /* Test9ViewController.swift */,
+				50409C2521D0E1A300A8A3A9 /* Test9TableView.swift */,
+				50409C2821D0E1A300A8A3A9 /* Test9TableViewController.swift */,
+				50409C2721D0E1A300A8A3A9 /* Test9TableViewController.xib */,
+				50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */,
+				50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */,
 			);
 			path = "复杂的自定义位置";
 			sourceTree = "<group>";
@@ -291,14 +291,14 @@
 		50409C2F21D0E1A300A8A3A9 /* ChildViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				50409C3021D0E1A300A8A3A9 /* ShowViewController.xib */,
-				50409C3121D0E1A300A8A3A9 /* Child3ViewController.swift */,
-				50409C3221D0E1A300A8A3A9 /* Child2ViewController.swift */,
 				50409C3321D0E1A300A8A3A9 /* Child1ViewController.swift */,
 				50409C3421D0E1A300A8A3A9 /* Child1ViewController.xib */,
-				50409C3521D0E1A300A8A3A9 /* ShowViewController.swift */,
+				50409C3221D0E1A300A8A3A9 /* Child2ViewController.swift */,
 				50409C3621D0E1A300A8A3A9 /* Child2ViewController.xib */,
+				50409C3121D0E1A300A8A3A9 /* Child3ViewController.swift */,
 				50409C3721D0E1A300A8A3A9 /* Child3ViewController.xib */,
+				50409C3021D0E1A300A8A3A9 /* ShowViewController.xib */,
+				50409C3521D0E1A300A8A3A9 /* ShowViewController.swift */,
 			);
 			path = ChildViewControllers;
 			sourceTree = "<group>";
@@ -332,12 +332,12 @@
 		50409C3E21D0E1A300A8A3A9 /* 复杂的自定义位置 */ = {
 			isa = PBXGroup;
 			children = (
-				50409C3F21D0E1A300A8A3A9 /* RxTest11TableViewController.xib */,
-				50409C4021D0E1A300A8A3A9 /* RxTest11TableView.swift */,
 				50409C4121D0E1A300A8A3A9 /* RxTest11ViewController.swift */,
-				50409C4221D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib */,
+				50409C4021D0E1A300A8A3A9 /* RxTest11TableView.swift */,
 				50409C4321D0E1A300A8A3A9 /* RxTest11TableViewController.swift */,
+				50409C3F21D0E1A300A8A3A9 /* RxTest11TableViewController.xib */,
 				50409C4421D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift */,
+				50409C4221D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib */,
 			);
 			path = "复杂的自定义位置";
 			sourceTree = "<group>";
