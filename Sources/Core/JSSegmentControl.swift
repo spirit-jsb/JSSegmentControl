@@ -61,8 +61,8 @@ public class JSSegmentControl: UIView {
     }
     
     // MARK: 公开方法
-    public func dequeueReusableTitle(at index: Int) -> JSTitleContainerView? {
-        return self.titleView.dequeueReusableTitle(at: index)
+    public func dequeueReusableTitle(at index: Int) -> JSTitleContainerView {
+        return self.titleView.dequeueReusableTitle(at: index) ?? JSTitleContainerView(style: self.style.titleContainerStyle)
     }
     
     public func dequeueReusableContent(at index: Int) -> UIViewController? {
