@@ -11,6 +11,8 @@ import UIKit
 public class JSSegmentControl: UIView {
 
     // MARK: 属性
+    public typealias CompletionHandle = () -> ()
+    
     public weak var dataSource: JSSegmentControlDataSource?
     public weak var delegate: JSSegmentControlDelegate?
     
@@ -78,7 +80,7 @@ public class JSSegmentControl: UIView {
         self.titleView.selectedIndex(index)
     }
     
-    public func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: () -> ()) {
+    public func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil) {
         self.titleView = titleView
         self.contentView = contentView
         
@@ -87,7 +89,9 @@ public class JSSegmentControl: UIView {
         self.contentView.contentDataSource = self
         self.contentView.contentDelegate = self
         
-        completionHandle()
+        if let _completionHandle = completionHandle {
+            _completionHandle()
+        }
     }
 
     // MARK: 重写父类方法
