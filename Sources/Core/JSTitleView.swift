@@ -203,12 +203,18 @@ public class JSTitleView: UIView {
     }
     
     private func setupCurrentSelect() {
+        guard (0..<self.containerViews.count).contains(self.currentIndex) else {
+            return
+        }
         let currentContainer = self.containerViews[self.currentIndex]
         currentContainer.isSelected = true
         self.titleDelegate?.title(self, didSelectAt: self.currentIndex)
     }
     
     private func setupCurrentSelectScale() {
+        guard (0..<self.containerViews.count).contains(self.currentIndex) else {
+            return
+        }
         let currentContainer = self.containerViews[self.currentIndex]
         if self.style.titleStyle.isTitleScale {
             currentContainer.scale = self.style.titleStyle.maxTitleScale
@@ -232,6 +238,10 @@ public class JSTitleView: UIView {
     }
     
     private func makeTitleLineAndMaskConstraints() {
+        guard (0..<self.containerViews.count).contains(self.currentIndex) else {
+            return
+        }
+        
         let lineHeight = self.style.titleStyle.lineHeight
         let maskHeight = self.style.titleStyle.maskHeight
         
