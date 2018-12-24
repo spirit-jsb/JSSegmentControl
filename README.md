@@ -32,6 +32,11 @@
 func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil)
 ```
 
+## Swift 版本依赖
+| Swift | JSSegmentControl |
+| ------| -----------------|
+| 4.0   | >=1.0.0          |
+
 ## 限制条件
 * **iOS 9.0** and Up
 * **Xcode 10.0** and Up
