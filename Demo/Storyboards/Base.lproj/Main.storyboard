@@ -10,6 +10,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Rx+遮盖+缩放+滚动条-->
+        <scene sceneID="TMK-wp-DeL">
+            <objects>
+                <viewController title="Rx+遮盖+缩放+滚动条" id="tSb-9h-VEW" customClass="RxTest10ViewController" customModule="JSSegmentControl_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oa8-3Z-R6Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6dQ-wM-M8I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4x5-Tn-5Wn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="-539"/>
+        </scene>
         <!--刷新内容和标题-->
         <scene sceneID="8p5-lC-VnL">
             <objects>
@@ -179,12 +194,37 @@
                                     <segue destination="Zij-kO-xnS" kind="show" id="Ycw-gb-r8N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSA-0g-1v9">
+                                <rect key="frame" x="0.0" y="508" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="lA7-vi-dUT"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Rx+遮盖+缩放+滚动条"/>
+                                <connections>
+                                    <segue destination="tSb-9h-VEW" kind="show" id="SbQ-O8-qbC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlB-Wg-xa0">
+                                <rect key="frame" x="0.0" y="553" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="T8H-aP-ZbW"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Rx+复杂的自定义位置"/>
+                                <connections>
+                                    <segue destination="KxH-lS-wzD" kind="show" id="SA9-d2-7sm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7oO-wE-UCM" secondAttribute="trailing" id="0Qk-Sw-1g4"/>
                             <constraint firstItem="MAY-77-yJ1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3mk-Hh-ygd"/>
                             <constraint firstItem="7oO-wE-UCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="50R-F4-XFW"/>
+                            <constraint firstItem="HlB-Wg-xa0" firstAttribute="top" secondItem="fSA-0g-1v9" secondAttribute="bottom" constant="1" id="5rQ-W3-gYG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bub-b2-a1U" secondAttribute="trailing" id="6dV-SA-7V0"/>
                             <constraint firstItem="Bub-b2-a1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8he-T0-GYt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1C6-Xm-VGi" secondAttribute="trailing" id="9uF-XX-Pt4"/>
@@ -196,12 +236,16 @@
                             <constraint firstItem="MAY-77-yJ1" firstAttribute="top" secondItem="Z2c-2P-6M1" secondAttribute="bottom" constant="1" id="H6e-23-mbV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6jV-JL-1QV" secondAttribute="trailing" id="Khr-pu-rRK"/>
                             <constraint firstItem="7oO-wE-UCM" firstAttribute="top" secondItem="VEY-4l-ZeC" secondAttribute="bottom" constant="1" id="Ls1-ij-dkT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fSA-0g-1v9" secondAttribute="trailing" id="NOF-1u-hzI"/>
                             <constraint firstItem="6jV-JL-1QV" firstAttribute="top" secondItem="41n-Wx-E4J" secondAttribute="bottom" constant="1" id="Pth-Tm-NWh"/>
+                            <constraint firstItem="HlB-Wg-xa0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qkc-2r-IEg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HlB-Wg-xa0" secondAttribute="trailing" id="REj-6e-fGa"/>
                             <constraint firstItem="Z2c-2P-6M1" firstAttribute="top" secondItem="1C6-Xm-VGi" secondAttribute="bottom" constant="1" id="S01-xZ-Tii"/>
                             <constraint firstItem="41n-Wx-E4J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SjK-d8-E8S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="41n-Wx-E4J" secondAttribute="trailing" id="VV3-VX-BJC"/>
                             <constraint firstItem="Z2c-2P-6M1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a57-WA-tvT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MAY-77-yJ1" secondAttribute="trailing" id="cee-f1-Jh7"/>
+                            <constraint firstItem="fSA-0g-1v9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dpM-aB-sV5"/>
                             <constraint firstItem="41n-Wx-E4J" firstAttribute="top" secondItem="Bub-b2-a1U" secondAttribute="bottom" constant="1" id="jx1-VG-DAn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z2c-2P-6M1" secondAttribute="trailing" id="mlO-Lr-9T2"/>
                             <constraint firstItem="6jV-JL-1QV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nKL-KH-Jt6"/>
@@ -209,6 +253,7 @@
                             <constraint firstItem="VEY-4l-ZeC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nX3-Ua-dXW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KFw-rm-4zz" secondAttribute="trailing" id="pVO-dD-QHX"/>
                             <constraint firstItem="1C6-Xm-VGi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="roI-cY-Tri"/>
+                            <constraint firstItem="fSA-0g-1v9" firstAttribute="top" secondItem="MAY-77-yJ1" secondAttribute="bottom" constant="20" id="uoK-xj-14L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -284,6 +329,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIh-Nd-1AT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1809" y="818"/>
+        </scene>
+        <!--Rx+复杂的自定义位置-->
+        <scene sceneID="moU-6c-LVd">
+            <objects>
+                <viewController title="Rx+复杂的自定义位置" id="KxH-lS-wzD" customClass="RxTest11ViewController" customModule="JSSegmentControl_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1WC-fX-WfJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2Xr-js-YL4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTI-Bm-Na1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-544" y="153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZvM-1n-MsT">
