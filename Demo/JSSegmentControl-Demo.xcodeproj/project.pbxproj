@@ -23,6 +23,14 @@
 		50386FD021CBA38E00B9524F /* Child3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50386FCE21CBA38E00B9524F /* Child3ViewController.xib */; };
 		50386FD321CBA41300B9524F /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50386FD121CBA41300B9524F /* ShowViewController.swift */; };
 		50386FD421CBA41300B9524F /* ShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50386FD221CBA41300B9524F /* ShowViewController.xib */; };
+		50409BE821D0853F00A8A3A9 /* SegmentTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 50409BE721D0853F00A8A3A9 /* SegmentTemplate.json */; };
+		50409BEE21D0C4E100A8A3A9 /* RxTest11ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BED21D0C4E100A8A3A9 /* RxTest11ViewController.swift */; };
+		50409BF021D0C5AD00A8A3A9 /* RxTest11TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BEF21D0C5AD00A8A3A9 /* RxTest11TableView.swift */; };
+		50409BF321D0C5EA00A8A3A9 /* RxTest11TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BF121D0C5EA00A8A3A9 /* RxTest11TableViewController.swift */; };
+		50409BF421D0C5EA00A8A3A9 /* RxTest11TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409BF221D0C5EA00A8A3A9 /* RxTest11TableViewController.xib */; };
+		50409BF721D0C5FC00A8A3A9 /* RxTest11CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BF521D0C5FC00A8A3A9 /* RxTest11CollectionViewController.swift */; };
+		50409BF821D0C5FC00A8A3A9 /* RxTest11CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409BF621D0C5FC00A8A3A9 /* RxTest11CollectionViewController.xib */; };
+		50A3BC7121CF209F00BA96CD /* RxTest10ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC7021CF209F00BA96CD /* RxTest10ViewController.swift */; };
 		50AD5AF821CBD70A009FBA22 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD5AF721CBD70A009FBA22 /* Test2ViewController.swift */; };
 		50AD5AFA21CBD714009FBA22 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD5AF921CBD714009FBA22 /* Test3ViewController.swift */; };
 		50AD5AFD21CBDB2E009FBA22 /* Test4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD5AFC21CBDB2E009FBA22 /* Test4ViewController.swift */; };
@@ -69,6 +77,14 @@
 		50386FCE21CBA38E00B9524F /* Child3ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Child3ViewController.xib; sourceTree = "<group>"; };
 		50386FD121CBA41300B9524F /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		50386FD221CBA41300B9524F /* ShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowViewController.xib; sourceTree = "<group>"; };
+		50409BE721D0853F00A8A3A9 /* SegmentTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SegmentTemplate.json; sourceTree = "<group>"; };
+		50409BED21D0C4E100A8A3A9 /* RxTest11ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTest11ViewController.swift; sourceTree = "<group>"; };
+		50409BEF21D0C5AD00A8A3A9 /* RxTest11TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTest11TableView.swift; sourceTree = "<group>"; };
+		50409BF121D0C5EA00A8A3A9 /* RxTest11TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTest11TableViewController.swift; sourceTree = "<group>"; };
+		50409BF221D0C5EA00A8A3A9 /* RxTest11TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxTest11TableViewController.xib; sourceTree = "<group>"; };
+		50409BF521D0C5FC00A8A3A9 /* RxTest11CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTest11CollectionViewController.swift; sourceTree = "<group>"; };
+		50409BF621D0C5FC00A8A3A9 /* RxTest11CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxTest11CollectionViewController.xib; sourceTree = "<group>"; };
+		50A3BC7021CF209F00BA96CD /* RxTest10ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTest10ViewController.swift; sourceTree = "<group>"; };
 		50AD5AF721CBD70A009FBA22 /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		50AD5AF921CBD714009FBA22 /* Test3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
 		50AD5AFC21CBDB2E009FBA22 /* Test4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test4ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +155,37 @@
 				50386FD221CBA41300B9524F /* ShowViewController.xib */,
 			);
 			path = ChildViewControllers;
+			sourceTree = "<group>";
+		};
+		50409BEC21D0C34B00A8A3A9 /* 复杂的自定义位置 */ = {
+			isa = PBXGroup;
+			children = (
+				50409BED21D0C4E100A8A3A9 /* RxTest11ViewController.swift */,
+				50409BEF21D0C5AD00A8A3A9 /* RxTest11TableView.swift */,
+				50409BF121D0C5EA00A8A3A9 /* RxTest11TableViewController.swift */,
+				50409BF221D0C5EA00A8A3A9 /* RxTest11TableViewController.xib */,
+				50409BF521D0C5FC00A8A3A9 /* RxTest11CollectionViewController.swift */,
+				50409BF621D0C5FC00A8A3A9 /* RxTest11CollectionViewController.xib */,
+			);
+			path = "复杂的自定义位置";
+			sourceTree = "<group>";
+		};
+		50A3BC6B21CE942B00BA96CD /* RxSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				50409BE721D0853F00A8A3A9 /* SegmentTemplate.json */,
+				50A3BC6F21CE949300BA96CD /* 遮盖+缩放+滚动条 */,
+				50409BEC21D0C34B00A8A3A9 /* 复杂的自定义位置 */,
+			);
+			path = RxSegmentControl;
+			sourceTree = "<group>";
+		};
+		50A3BC6F21CE949300BA96CD /* 遮盖+缩放+滚动条 */ = {
+			isa = PBXGroup;
+			children = (
+				50A3BC7021CF209F00BA96CD /* RxTest10ViewController.swift */,
+			);
+			path = "遮盖+缩放+滚动条";
 			sourceTree = "<group>";
 		};
 		50AD5AF521CBD6E5009FBA22 /* 遮盖+缩放 */ = {
@@ -256,6 +303,7 @@
 				50AD5B0421CBE646009FBA22 /* 刷新内容和标题 */,
 				502474E421CCCCBF008B9BAF /* 自定义位置 */,
 				502474E721CCFD87008B9BAF /* 复杂的自定义位置 */,
+				50A3BC6B21CE942B00BA96CD /* RxSegmentControl */,
 				50C02E6421B96CE6003669D3 /* ViewController.swift */,
 			);
 			path = ViewControllers;
@@ -296,6 +344,7 @@
 				50C02E3C21B96C76003669D3 /* Frameworks */,
 				50C02E3D21B96C76003669D3 /* Resources */,
 				50C02E7421B96D8B003669D3 /* Embed Frameworks */,
+				50409BE921D0892400A8A3A9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -345,11 +394,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				502474F321CD3534008B9BAF /* Test9CollectionViewController.xib in Resources */,
+				50409BF421D0C5EA00A8A3A9 /* RxTest11TableViewController.xib in Resources */,
+				50409BE821D0853F00A8A3A9 /* SegmentTemplate.json in Resources */,
 				50C02E6921B96CE6003669D3 /* LaunchScreen.storyboard in Resources */,
 				50386FC821CBA37200B9524F /* Child1ViewController.xib in Resources */,
 				50386FCC21CBA38000B9524F /* Child2ViewController.xib in Resources */,
 				50C02E6B21B96CE6003669D3 /* Assets.xcassets in Resources */,
 				50C02E6A21B96CE6003669D3 /* Main.storyboard in Resources */,
+				50409BF821D0C5FC00A8A3A9 /* RxTest11CollectionViewController.xib in Resources */,
 				502474EF21CD3522008B9BAF /* Test9TableViewController.xib in Resources */,
 				50386FD021CBA38E00B9524F /* Child3ViewController.xib in Resources */,
 				50386FD421CBA41300B9524F /* ShowViewController.xib in Resources */,
@@ -358,17 +410,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50409BE921D0892400A8A3A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				/Users/Max/Desktop/Cocoapods/JSSegmentControl/Carthage/Build/iOS/RxSwift.framework,
+				/Users/Max/Desktop/Cocoapods/JSSegmentControl/Carthage/Build/iOS/RxCocoa.framework,
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50C02E3B21B96C76003669D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				502474F221CD3534008B9BAF /* Test9CollectionViewController.swift in Sources */,
+				50A3BC7121CF209F00BA96CD /* RxTest10ViewController.swift in Sources */,
+				50409BF021D0C5AD00A8A3A9 /* RxTest11TableView.swift in Sources */,
+				50409BEE21D0C4E100A8A3A9 /* RxTest11ViewController.swift in Sources */,
 				50386FC321CBA2B400B9524F /* Test1ViewController.swift in Sources */,
 				502474EE21CD3522008B9BAF /* Test9TableViewController.swift in Sources */,
 				50AD5B0021CBDCEF009FBA22 /* Test5ViewController.swift in Sources */,
 				50AD5B0621CBE670009FBA22 /* Test7ViewController.swift in Sources */,
+				50409BF721D0C5FC00A8A3A9 /* RxTest11CollectionViewController.swift in Sources */,
 				50386FD321CBA41300B9524F /* ShowViewController.swift in Sources */,
+				50409BF321D0C5EA00A8A3A9 /* RxTest11TableViewController.swift in Sources */,
 				502474E921CCFDD3008B9BAF /* Test9ViewController.swift in Sources */,
 				50386FC721CBA37200B9524F /* Child1ViewController.swift in Sources */,
 				50C02E6D21B96CE6003669D3 /* AppDelegate.swift in Sources */,
@@ -530,6 +609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUJQRQRH7L;
+				FRAMEWORK_SEARCH_PATHS = /Users/Max/Desktop/Cocoapods/JSSegmentControl/Carthage/Build/iOS;
 				INFOPLIST_FILE = Demo/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,6 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UUJQRQRH7L;
+				FRAMEWORK_SEARCH_PATHS = /Users/Max/Desktop/Cocoapods/JSSegmentControl/Carthage/Build/iOS;
 				INFOPLIST_FILE = Demo/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
