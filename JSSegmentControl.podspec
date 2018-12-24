@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
     s.subspec "RxSwift" do |ss|
       ss.source_files = "Sources/RxSegmentControl/"
-      ss.dependency "RxSegmentControl/Core"
+      ss.dependency "JSSegmentControl/Core"
       ss.dependency "RxSwift", "~> 4.0"
       ss.dependency "RxCocoa", "~> 4.0"
     end
