@@ -73,15 +73,13 @@ extension Test7ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        var title = segmentControl.dequeueReusableTitle(at: index)
-        if title == nil {
-            title = JSTitleContainerView(style: self.style.titleContainerStyle)
-        }
-        title?.segmentTitle = self.dataSource[index]["title"]
-        title?.segmentImage = UIImage(named: self.dataSource[index]["normal_image"]!)
-        title?.segmentHighlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
-        title?.segmentBadge = index
-        return title!
+        let title = segmentControl.dequeueReusableTitle(at: index)
+        
+        title.segmentTitle = self.dataSource[index]["title"]
+        title.segmentImage = UIImage(named: self.dataSource[index]["normal_image"]!)
+        title.segmentHighlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
+        title.segmentBadge = index
+        return title
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {
