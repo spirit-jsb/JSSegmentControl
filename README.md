@@ -33,7 +33,9 @@ carthage update
 
 ⚠️ **请确保重写 `Parent View Controller` 的 `shouldAutomaticallyForwardAppearanceMethods` 参数并返回 `false`，否则会抛出异常信息！** ⚠️
 
-⚠️ **注意事项：请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️
+~~⚠️ **注意事项：请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️~~
+
+⚠️ **注意事项：当使用 `RxSwift` 接口时，请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️
 ```swift
 func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil)
 ```
@@ -55,7 +57,7 @@ func configuration(titleView: JSTitleView, contentView: JSContentView, completio
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.1.1'
+pod 'JSSegmentControl', '~> 1.1.2'
 ```
 
 ## 待完成
