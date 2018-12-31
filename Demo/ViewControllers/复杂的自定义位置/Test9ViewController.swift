@@ -55,11 +55,10 @@ class Test9ViewController: UIViewController {
         super.viewDidLoad()
         self.view.addSubview(self.tableView)
         
-        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
-        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
-        
         self.segment.dataSource = self
         self.segment.delegate = self
+        
+        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
     }
 
     // MAKR:

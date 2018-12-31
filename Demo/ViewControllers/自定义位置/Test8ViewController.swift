@@ -30,14 +30,13 @@ class Test8ViewController: UIViewController {
         self.style.titleStyle.isShowMasks = true
         self.style.titleStyle.maskColor = UIColor.red
         
-        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
+        self.segment.dataSource = self
+        self.segment.delegate = self
+        
         self.segment.configuration(titleView: self.titleView, contentView: self.contentView, completionHandle: {
             self.navigationItem.titleView = self.titleView
             self.view.addSubview(self.contentView)
         })
-        
-        self.segment.dataSource = self
-        self.segment.delegate = self
     }
     
     // MAKR:

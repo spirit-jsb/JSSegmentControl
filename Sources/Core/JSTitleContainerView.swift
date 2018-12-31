@@ -150,8 +150,11 @@ public class JSTitleContainerView: UIView {
         self.makeConstraints()
     }
     
-    public override func didMoveToSuperview() {
-        super.didMoveToSuperview()
+    public override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        guard let _ = newSuperview else {
+            return
+        }
         self.setupSubviews()
     }
     
