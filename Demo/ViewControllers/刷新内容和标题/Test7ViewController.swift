@@ -43,6 +43,7 @@ class Test7ViewController: UIViewController {
         self.style.titleContainerStyle.position = .top
         self.style.titleContainerStyle.titleTextColor = UIColor.blue
         self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.style.titleContainerStyle.badgeOffset = 4.0
         
         self.style.titleStyle.isShowLines = true
         self.style.titleStyle.titleHeight = 70.0

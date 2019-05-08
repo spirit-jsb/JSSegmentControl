@@ -57,6 +57,7 @@ class RxTest10ViewController: UIViewController {
         style.titleStyle.isTitleScale = true
         style.titleStyle.lineColor = UIColor.orange
         style.titleStyle.maskColor = UIColor.orange.withAlphaComponent(0.5)
+        style.titleContainerStyle.badgeOffset = 4.0
         return style
     }()
     

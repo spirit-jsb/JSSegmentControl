@@ -111,9 +111,6 @@ class RxTest11ViewController: UIViewController {
             segmentDataSource = Observable.empty()
         }
         
-        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
-        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
-        
         self.dataSource = RxSegmentReloadDataSource<RxTest11SegmentCustomData>(configureTitle: {
             (ds, sc, i, item) -> JSTitleContainerView in
             let title = sc.dequeueReusableTitle(at: i)
@@ -143,12 +140,15 @@ class RxTest11ViewController: UIViewController {
         
         segmentDataSource.bind(to: self.segment.rx.item(dataSource: self.dataSource))
             .disposed(by: self.bag)
+        
+        // ⚠️注意事项：configuration 函数请置于 DataSource 设置之前。⚠️
+        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
     }
     
     // MAKR:
-    override var shouldAutomaticallyForwardAppearanceMethods: Bool {
-        return false
-    }
+//    override var shouldAutomaticallyForwardAppearanceMethods: Bool {
+//        return false
+//    }
 }
 
 extension RxTest11ViewController: UITableViewDataSource {

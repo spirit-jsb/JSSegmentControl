@@ -21,6 +21,7 @@ class Test1ViewController: UIViewController {
         
         self.style.titleContainerStyle.titleTextColor = UIColor.blue
         self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.style.titleContainerStyle.badgeOffset = 4.0
         
         self.style.titleStyle.isShowLines = true
         self.style.titleStyle.isShowMasks = true
