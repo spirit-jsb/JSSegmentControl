@@ -35,7 +35,7 @@ carthage update
 
 ~~⚠️ **注意事项：请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️~~
 
-⚠️ **注意事项：当使用 `RxSwift` 接口时，请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️
+~~⚠️ **注意事项：当使用 `RxSwift` 接口时，请确保下面的函数在设置 `DataSource` 和 `Delegate` 之前被执行。** ⚠️~~
 ```swift
 func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil)
 ```
@@ -43,7 +43,7 @@ func configuration(titleView: JSTitleView, contentView: JSContentView, completio
 ## Swift 版本依赖
 | Swift | JSSegmentControl | RxSegmentControl |
 | ------| -----------------| -----------------|
-| 4.0   | >=1.0.0          | -                |
+| 4.0   | >= 1.0.0         | -                |
 | 4.2   | >= 1.1.0         | >= 1.1.1         |
 | 5.0   | >= 1.2.0         | >= 1.2.0         |
 
@@ -58,7 +58,7 @@ func configuration(titleView: JSTitleView, contentView: JSContentView, completio
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.2.0'
+pod 'JSSegmentControl', '~> 1.2.1'
 ```
 
 ## 待完成
