@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name             = 'JSSegmentControl'
-    s.version          = '1.2.0'
+    s.version          = '1.2.1'
     s.summary          = '一个简便易用的自定义 Segment 框架。'
   
     s.description      = <<-DESC
