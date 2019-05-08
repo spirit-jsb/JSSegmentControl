@@ -39,6 +39,9 @@ public struct JSSegmentControlStyle {
         /// 标题容器中 Badge 文字的默认颜色, 默认值为 UIColor.white
         public var badgeTextColor: UIColor = UIColor.white
         
+        /// 标题容器中 Badge 文字的默认偏移量, 默认值为 8.0
+        public var badgeOffset: CGFloat = 8.0
+        
         /// 标题容器中文字、图像位置, 默认值为 .left
         public var position: TitleAndImagePosition = .left
         

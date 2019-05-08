@@ -230,8 +230,9 @@ public class JSTitleContainerView: UIView {
     
     private func badgeConstraints() {
         let margin: CGFloat = 16.0
+        let badgeOffset: CGFloat = self.style.badgeOffset
         
         self.segmentBadgeLabel.frame.size = CGSize(width: margin, height: margin)
-        self.segmentBadgeLabel.center = CGPoint(x: self.containerView.bounds.maxX, y: self.containerView.bounds.minY)
+        self.segmentBadgeLabel.center = CGPoint(x: self.containerView.bounds.maxX - badgeOffset, y: self.containerView.bounds.minY + badgeOffset)
     }
 }
