@@ -28,7 +28,7 @@ public class JSSegmentControl: UIView {
     }()
     
     private lazy var contentView: JSContentView = {
-        let contentView = JSContentView(frame: CGRect(x: 0.0, y: self.style.titleStyle.titleHeight, width: self.bounds.width, height: self.bounds.height - self.style.titleStyle.titleHeight), segmentStyle: self.style, parentViewController: self.parent!)
+        let contentView = JSContentView(frame: CGRect(x: 0.0, y: self.style.titleStyle.titleHeight, width: self.bounds.width, height: self.bounds.height - self.style.titleStyle.titleHeight), segmentStyle: self.style, parentViewController: self.parent)
         contentView.contentDataSource = self
         contentView.contentDelegate = self
         return contentView

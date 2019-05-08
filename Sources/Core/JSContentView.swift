@@ -57,7 +57,7 @@ public class JSContentView: UIView {
     }
 
     // MARK: 初始化
-    public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
+    public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController?) {
         self.style = style
         self.parent = parent
         super.init(frame: frame)
@@ -145,7 +145,7 @@ public class JSContentView: UIView {
 
     // MARK: 设置方法
     private func setupContentView() {
-        guard !self.parent!.shouldAutomaticallyForwardAppearanceMethods else {
+        guard !(self.parent?.shouldAutomaticallyForwardAppearanceMethods ?? false) else {
             fatalError("请重写 \(self.parent.self!) 的 shouldAutomaticallyForwardAppearanceMethods 函数，并返回 false")
         }
     }
