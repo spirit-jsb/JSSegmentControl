@@ -51,14 +51,14 @@ func configuration(titleView: JSTitleView, contentView: JSContentView, completio
 * **iOS 9.0** and Up
 * **Xcode 10.0** and Up
 * **Swift Version = 5.0**
-* **RxSwift Version >= 4.0**
+* **RxSwift Version >= 5.0**
 
 ## 安装
 
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.2.1'
+pod 'JSSegmentControl', '~> 1.2.2'
 ```
 
 ## 待完成
