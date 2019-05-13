@@ -457,7 +457,7 @@
 				50409BFC21D0E14D00A8A3A9 /* Frameworks */,
 				50409BFD21D0E14D00A8A3A9 /* Resources */,
 				50409C7421D0E22500A8A3A9 /* Embed Frameworks */,
-				50409C7521D0E27000A8A3A9 /* ShellScript */,
+				50409C7521D0E27000A8A3A9 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -477,7 +477,7 @@
 				50C02E2221B96B86003669D3 /* Sources */,
 				50C02E2321B96B86003669D3 /* Frameworks */,
 				50C02E2421B96B86003669D3 /* Resources */,
-				509409E021CDE84D009E8DBE /* ShellScript */,
+				509409E021CDE84D009E8DBE /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -556,7 +556,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50409C7521D0E27000A8A3A9 /* ShellScript */ = {
+		50409C7521D0E27000A8A3A9 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,7 +566,9 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
+			name = Carthage;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -575,7 +577,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
-		509409E021CDE84D009E8DBE /* ShellScript */ = {
+		509409E021CDE84D009E8DBE /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -585,7 +587,9 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
+			name = Carthage;
 			outputFileListPaths = (
 			);
 			outputPaths = (
