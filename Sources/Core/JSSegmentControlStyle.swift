@@ -91,6 +91,9 @@ public struct JSSegmentControlStyle {
         /// 滚动条高度, 默认值为 2.0
         public var lineHeight: CGFloat = 2.0
         
+        /// 滚动条宽度, 默认值为 0.0
+        public var lineWidth: CGFloat = 0.0
+        
         /// 滚动条颜色, 默认值为 UIColor.clear
         public var lineColor: UIColor = UIColor.clear
         

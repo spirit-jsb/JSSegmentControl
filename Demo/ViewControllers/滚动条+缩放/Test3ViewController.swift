@@ -25,6 +25,7 @@ class Test3ViewController: UIViewController {
         self.style.titleContainerStyle.badgeOffset = 4.0
         
         self.style.titleStyle.isShowLines = true
+        self.style.titleStyle.lineWidth = 20.0
         self.style.titleStyle.isTitleScale = true
         
         self.style.titleStyle.lineColor = UIColor.orange

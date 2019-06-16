@@ -57,6 +57,8 @@ public class JSTitleContainerView: UIView {
         }
     }
     
+    var lineFrame: CGRect = .zero
+    
     var scale: CGFloat = 1.0 {
         willSet {
             self.transform = CGAffineTransform(scaleX: newValue, y: newValue)
