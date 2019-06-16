@@ -30,14 +30,20 @@ public struct JSSegmentControlStyle {
         /// 标题容器中文字的高亮颜色, 默认值为 UIColor.clear
         public var titleHighlightedTextColor: UIColor = UIColor.clear
         
-        /// 标题容器中 Badge 背景的默认颜色, 默认值为 UIColor.red
-        public var badgeBackgroundColor: UIColor = UIColor.red
+        /// 标题容器中 Badge 是否隐藏, 默认值为 true
+        public var hiddenBadge: Bool = true
+        
+        /// 标题容器中 Badge 背景的默认颜色, 默认值为 UIColor.white
+        public var badgeBackgroundColor: UIColor = UIColor.white
         
         /// 标题容器中 Badge 文字的字体, 默认值为 UIFont.boldSystemFont(ofSize: 10.0)
         public var badgeFont: UIFont = UIFont.boldSystemFont(ofSize: 10.0)
         
-        /// 标题容器中 Badge 文字的默认颜色, 默认值为 UIColor.white
-        public var badgeTextColor: UIColor = UIColor.white
+        /// 标题容器中 Badge 文字的默认颜色, 默认值为 UIColor.red
+        public var badgeTextColor: UIColor = UIColor.red
+        
+        /// 标题容器中 Badge 边框的默认颜色, 默认值为 UIColor.red
+        public var badgeBorderColor: UIColor = UIColor.red
         
         /// 标题容器中 Badge 文字的默认偏移量, 默认值为 8.0
         public var badgeOffset: CGFloat = 8.0
@@ -84,6 +90,9 @@ public struct JSSegmentControlStyle {
         
         /// 滚动条高度, 默认值为 2.0
         public var lineHeight: CGFloat = 2.0
+        
+        /// 滚动条宽度, 默认值为 0.0
+        public var lineWidth: CGFloat = 0.0
         
         /// 滚动条颜色, 默认值为 UIColor.clear
         public var lineColor: UIColor = UIColor.clear

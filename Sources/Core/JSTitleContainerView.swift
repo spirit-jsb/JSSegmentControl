@@ -57,6 +57,8 @@ public class JSTitleContainerView: UIView {
         }
     }
     
+    var lineFrame: CGRect = .zero
+    
     var scale: CGFloat = 1.0 {
         willSet {
             self.transform = CGAffineTransform(scaleX: newValue, y: newValue)
@@ -117,12 +119,15 @@ public class JSTitleContainerView: UIView {
     
     private lazy var segmentBadgeLabel: UILabel = {
         let label = UILabel()
+        label.isHidden = self.style.hiddenBadge
         label.backgroundColor = self.style.badgeBackgroundColor
         label.font = self.style.badgeFont
         label.textColor = self.style.badgeTextColor
         label.textAlignment = .center
         label.layer.cornerRadius = 8.0
         label.layer.masksToBounds = true
+        label.layer.borderColor = self.style.badgeBorderColor.cgColor
+        label.layer.borderWidth = 0.5
         return label
     }()
 

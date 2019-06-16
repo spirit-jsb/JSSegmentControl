@@ -105,24 +105,34 @@ public class JSTitleView: UIView {
             return
         }
         
-        let oldContainerView = self.containerViews[oldIndex]
-        let currentContainerView = self.containerViews[currentIndex]
+        let oldContainer = self.containerViews[oldIndex]
+        let currentContainer = self.containerViews[currentIndex]
         
-        let xDistance = currentContainerView.frame.minX - oldContainerView.frame.minX
-        let widthDistance = currentContainerView.frame.width - oldContainerView.frame.width
+        let xDistance = currentContainer.frame.minX - oldContainer.frame.minX
+        let widthDistance = currentContainer.frame.width - oldContainer.frame.width
+        
+        let lineWidth = self.style.titleStyle.lineWidth == 0.0 ? currentContainer.bounds.width : min(self.style.titleStyle.lineWidth, currentContainer.bounds.width)
+        
+        self.titleLine.frame.size.width = lineWidth
+        self.titleLine.center.x = currentContainer.center.x
+                
+        self.containerViews[currentIndex].lineFrame = self.titleLine.frame
+        
+        let xLineDistance = currentContainer.lineFrame.minX - oldContainer.lineFrame.minX
+        let widthLineDistance = currentContainer.lineFrame.width - oldContainer.lineFrame.width
         
         if self.style.titleStyle.isShowLines {
-            self.titleLine.frame.origin.x = oldContainerView.frame.minX + xDistance * progress
-            self.titleLine.frame.size.width = oldContainerView.frame.width + widthDistance * progress
+            self.titleLine.frame.origin.x = oldContainer.lineFrame.minX + xLineDistance * progress
+            self.titleLine.frame.size.width = oldContainer.lineFrame.width + widthLineDistance * progress
         }
         if self.style.titleStyle.isShowMasks {
-            self.titleMask.frame.origin.x = oldContainerView.frame.minX + xDistance * progress
-            self.titleMask.frame.size.width = oldContainerView.frame.width + widthDistance * progress
+            self.titleMask.frame.origin.x = oldContainer.frame.minX + xDistance * progress
+            self.titleMask.frame.size.width = oldContainer.frame.width + widthDistance * progress
         }
         if self.style.titleStyle.isTitleScale {
             let scaleDistance = self.style.titleStyle.maxTitleScale - 1.0
-            oldContainerView.scale = self.style.titleStyle.maxTitleScale - scaleDistance * progress
-            currentContainerView.scale = 1.0 + scaleDistance * progress
+            oldContainer.scale = self.style.titleStyle.maxTitleScale - scaleDistance * progress
+            currentContainer.scale = 1.0 + scaleDistance * progress
         }
     }
     
@@ -245,15 +255,18 @@ public class JSTitleView: UIView {
             return
         }
         
+        let currentContainer = self.containerViews[self.currentIndex]
+        
+        let lineWidth = self.style.titleStyle.lineWidth == 0.0 ? currentContainer.bounds.width : min(self.style.titleStyle.lineWidth, currentContainer.bounds.width)
         let lineHeight = self.style.titleStyle.lineHeight
         let maskHeight = self.style.titleStyle.maskHeight
         
-        let currentContainer = self.containerViews[self.currentIndex]
-        
         if self.style.titleStyle.isShowLines {
             self.titleLine.frame.origin.y = currentContainer.frame.maxY
-            self.titleLine.frame.size = CGSize(width: currentContainer.bounds.width, height: lineHeight)
+            self.titleLine.frame.size = CGSize(width: lineWidth, height: lineHeight)
             self.titleLine.center.x = currentContainer.center.x
+            
+            self.containerViews[self.currentIndex].lineFrame = self.titleLine.frame
         }
         if self.style.titleStyle.isShowMasks {
             self.titleMask.frame.size = CGSize(width: currentContainer.bounds.width, height: maskHeight)
@@ -294,20 +307,24 @@ public class JSTitleView: UIView {
         }
         
         let oldContainerView = (oldIndex < 0 || oldIndex >= self.dataSourceCount) ? nil : self.containerViews[oldIndex]
-        let currentContainerView = self.containerViews[currentIndex]
+        let currentContainer = self.containerViews[currentIndex]
+        
+        let lineWidth = self.style.titleStyle.lineWidth == 0.0 ? currentContainer.bounds.width : min(self.style.titleStyle.lineWidth, currentContainer.bounds.width)
         
         UIView.animate(withDuration: 0.3, animations: {
             if self.style.titleStyle.isTitleScale {
                 oldContainerView?.scale = 1.0
-                currentContainerView.scale = self.style.titleStyle.maxTitleScale
+                currentContainer.scale = self.style.titleStyle.maxTitleScale
             }
             if self.style.titleStyle.isShowLines {
-                self.titleLine.frame.size.width = currentContainerView.bounds.width
-                self.titleLine.center.x = currentContainerView.center.x
+                self.titleLine.frame.size.width = lineWidth
+                self.titleLine.center.x = currentContainer.center.x
+
+                self.containerViews[currentIndex].lineFrame = self.titleLine.frame
             }
             if self.style.titleStyle.isShowMasks {
-                self.titleMask.frame.size.width = currentContainerView.bounds.width
-                self.titleMask.center.x = currentContainerView.center.x
+                self.titleMask.frame.size.width = currentContainer.bounds.width
+                self.titleMask.center.x = currentContainer.center.x
             }
         }, completion: { (_) in
             self.selectedIndexScrollAnimated(toCurrentIndex: currentIndex)
