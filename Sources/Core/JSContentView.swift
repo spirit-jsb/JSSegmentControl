@@ -130,9 +130,9 @@ public class JSContentView: UIView {
     // MARK: 重写父类方法
     public override func layoutSubviews() {
         super.layoutSubviews()
-        if let currentViewController = self.currentViewController {
-            currentViewController.view.frame = self.bounds
-        }
+        self.contentLayout.itemSize = self.bounds.size
+        self.contentCollectionView.frame = self.bounds
+        self.currentViewController?.view.frame = self.bounds
     }
     
     public override func willMove(toSuperview newSuperview: UIView?) {
