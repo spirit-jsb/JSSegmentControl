@@ -13,35 +13,73 @@ class Test6ViewController: UIViewController {
 
     // MAKR:
     var dataSource = ["新闻头条", "国际要闻", "体育", "中国足球", "汽车", "囧途旅游", "幽默搞笑", "视频", "无厘头", "美女图片", "今日房价", "头像"]
-    var style = JSSegmentControlStyle()
-    lazy var segment: JSSegmentControl = JSSegmentControl(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
+    
+    var titleContainerStyle = TitleContainerStyle()
+    var titleStyle = TitleStyle()
+    var contentStyle = ContentStyle()
+    
+    lazy var titleView = JSTitleView(style: self.titleStyle)
+    lazy var contentView = JSContentView(style: self.contentStyle, parent: self)
+    let segmentControl = JSSegmentControl()
     
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.style.titleContainerStyle.titleTextColor = UIColor.blue
-        self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.red
-        self.style.titleContainerStyle.badgeOffset = 4.0
+        self.titleContainerStyle.titleFont = UIFont.systemFont(ofSize: 15.0)
+        self.titleContainerStyle.isBadgeHidden = false
+        self.titleContainerStyle.titleTextColor = UIColor.blue
+        self.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.titleContainerStyle.badgeBackgroundColor = UIColor.white
+        self.titleContainerStyle.badgeStyle = .number
+        self.titleContainerStyle.badgeTextColor = UIColor.red
+        self.titleContainerStyle.badgeBorderColor = UIColor.red.cgColor
+        self.titleContainerStyle.badgeEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
+        self.titleContainerStyle.edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
         
-        self.style.titleStyle.isShowLines = true
-        self.style.titleStyle.isTitleScale = true
+        self.titleStyle.isMaskHidden = false
+        self.titleStyle.isLineHidden = false
+        self.titleStyle.isZoomEnabled = true
+        self.titleStyle.spacing = 10.0
+        self.titleStyle.edgeInsets = UIEdgeInsets(top: 15.0, left: 5.0, bottom: -15.0, right: -5.0)
+        self.titleStyle.lineColor = UIColor.green
         
-        self.style.titleStyle.lineColor = UIColor.orange
+        self.view.addSubview(self.titleView)
+        self.view.addSubview(self.contentView)
         
-        self.segment.dataSource = self
-        self.segment.delegate = self
-        self.view.addSubview(self.segment)
+        self.segmentControl.title = titleView
+        self.segmentControl.content = contentView
+        self.segmentControl.dataSource = self
+        self.segmentControl.delegate = self
     }
     
     // MAKR:
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        self.titleView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.view)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            }
+            else {
+                make.top.equalTo(self.view).offset(TOP_MARGIN)
+            }
+            make.bottom.equalTo(self.contentView.snp.top)
+        }
+        
+        self.contentView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self.view)
+        }
+    }
+    
     override var shouldAutomaticallyForwardAppearanceMethods: Bool {
         return false
     }
     
     // MARK: 
     @IBAction func rightBarButtonPressed(_ sender: UIBarButtonItem) {
-        self.segment.selectedIndex(5)        
+        self.segmentControl.selected(index: 5)
     }
 }
 
@@ -52,11 +90,13 @@ extension Test6ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        let title = segmentControl.dequeueReusableTitle(at: index)
-        
-        title.segmentTitle = self.dataSource[index]
-        title.segmentBadge = index
-        return title
+        var title = segmentControl.dequeueReusableTitle(at: index)
+        if title == nil {
+            title = JSTitleContainerView(style: self.titleContainerStyle)
+        }
+        title?.title = self.dataSource[index]
+        title?.badge = index
+        return title!
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {

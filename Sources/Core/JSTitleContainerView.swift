@@ -9,134 +9,115 @@
 import UIKit
 
 public class JSTitleContainerView: UIView {
-
+    
     // MARK: 属性
-    public var segmentTitle: String? {
+    public var title: String? {
         willSet {
-            self.segmentTitleLabel.text = newValue
-            self.segmentTitleLabel.sizeToFit()
+            self.titleView.text = newValue
         }
     }
     
-    public var segmentTitleHighlightedTextColor: UIColor? {
+    public var image: UIImage? {
         willSet {
-            self.segmentTitleLabel.highlightedTextColor = newValue
+            self.imageView.image = newValue
+            self.imageView.highlightedImage = newValue
         }
     }
     
-    public var segmentImage: UIImage? {
+    public var highlightedImage: UIImage? {
         willSet {
-            self.segmentImageView.image = newValue
-            self.segmentImageView.sizeToFit()
+            self.imageView.highlightedImage = newValue
         }
     }
-
-    public var segmentHighlightedImage: UIImage? {
+    
+    public var badge: Int = 0 {
         willSet {
-            self.segmentImageView.highlightedImage = newValue
-            self.segmentImageView.sizeToFit()
-        }
-    }
-
-    public var segmentBadge: Int = 0 {
-        willSet {
-            if newValue == 0 {
-                self.segmentBadgeLabel.isHidden = true
-            }
-            else {
-                self.segmentBadgeLabel.text = "\(newValue)"
-                self.segmentBadgeLabel.sizeToFit()
+            self.badgeView.isHidden = self.style.isBadgeHidden ? true : newValue == 0
+            if self.style.badgeStyle == .number, !self.style.isBadgeHidden {
+                self.badgeContainerLabel.text = "\(newValue)"
             }
         }
     }
     
-    public var isSelected: Bool = false {
+    public var highlightedTextColor: UIColor? {
         willSet {
-            self.segmentTitleLabel.isHighlighted = newValue
-            self.segmentImageView.isHighlighted = newValue
+            self.titleView.highlightedTextColor = newValue
         }
     }
     
-    var lineFrame: CGRect = .zero
+    let style: TitleContainerStyle
     
-    var scale: CGFloat = 1.0 {
+    var isSelected: Bool = false {
         willSet {
-            self.transform = CGAffineTransform(scaleX: newValue, y: newValue)
+            self.titleView.isHighlighted = newValue
+            self.imageView.isHighlighted = newValue
         }
     }
     
-    var containerSize: CGSize {
-        let margin = self.style.margin
-        
-        let imageViewSize = self.segmentImageView.bounds.size
-        let labelSize = self.segmentTitleLabel.bounds.size
-        
-        let imageViewWidth = imageViewSize.width
-        let imageViewHeight = imageViewSize.height
-        
-        let labelWidth = labelSize.width
-        let labelHeight = labelSize.height
-        
-        var maxWidth: CGFloat = 0.0
-        var maxHeight: CGFloat = 0.0
-        
-        switch self.style.position {
-        case .left, .right:
-            maxWidth = imageViewWidth + labelWidth + margin
-            maxHeight = max(imageViewHeight, labelHeight)
-        case .top, .bottom:
-            maxWidth = max(imageViewWidth, labelWidth)
-            maxHeight = imageViewHeight + labelHeight + margin
-        case .background:
-            maxWidth = max(imageViewWidth, labelWidth)
-            maxHeight = max(imageViewHeight, labelHeight)
+    var isZoomed: Bool = false {
+        willSet {
+            let scale = newValue ? self.style.maximumZoomScale : 1.0
+            self.transform = CGAffineTransform(scaleX: scale, y: scale)
         }
-        return CGSize(width: maxWidth + 2.0 * margin, height: maxHeight + 2.0 * margin)
     }
     
-    private lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        return view
-    }()
-
-    private lazy var segmentImageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.clear
         imageView.contentMode = .center
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private lazy var segmentTitleLabel: UILabel = {
+    private lazy var titleView: UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
         label.font = self.style.titleFont
         label.textColor = self.style.titleTextColor
-        label.textAlignment = .center
         label.highlightedTextColor = self.style.titleHighlightedTextColor
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var segmentBadgeLabel: UILabel = {
+    private lazy var badgeView: UIView = {
+        let view = UIView()
+        view.isHidden = self.style.isBadgeHidden
+        view.backgroundColor = self.style.badgeBackgroundColor
+        view.layer.cornerRadius = self.style.badgeStyle == .number ? 10.0 : 4.0
+        view.layer.masksToBounds = true
+        view.layer.borderColor = self.style.badgeBorderColor
+        view.layer.borderWidth = self.style.badgeBorderWidth
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var badgeContainerLabel: UILabel = {
         let label = UILabel()
-        label.isHidden = self.style.hiddenBadge
-        label.backgroundColor = self.style.badgeBackgroundColor
-        label.font = self.style.badgeFont
+        label.backgroundColor = self.badgeView.backgroundColor
+        label.font = UIFont.boldSystemFont(ofSize: 10.0)
         label.textColor = self.style.badgeTextColor
         label.textAlignment = .center
-        label.layer.cornerRadius = 8.0
-        label.layer.masksToBounds = true
-        label.layer.borderColor = self.style.badgeBorderColor.cgColor
-        label.layer.borderWidth = 0.5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.badgeView.addSubview(label)
         return label
     }()
-
-    private let style: JSSegmentControlStyle.JSTitleContainerStyle
     
-    // MARK: 初始化
-    public init(style: JSSegmentControlStyle.JSTitleContainerStyle) {
+    private lazy var containerView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
+        stackView.spacing = self.style.spacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(stackView)
+        return stackView
+    }()
+    
+    // MARK:
+    public init(style: TitleContainerStyle) {
         self.style = style
         super.init(frame: .zero)
+        self.configView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -145,99 +126,107 @@ public class JSTitleContainerView: UIView {
     
     deinit {
         #if DEBUG
-        print("DEINIT: \(#file)")
+        let function = #function
+        let file = #file.split(separator: "/").last ?? "null"
+        let line = #line
+        print(file, line, function)
         #endif
     }
     
-    // MARK: 重写父类方法
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        self.makeConstraints()
-    }
-    
+    // MARK:
     public override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
+        
         guard let _ = newSuperview else {
             return
         }
-        self.setupSubviews()
-    }
-    
-    // MARK: 设置方法
-    private func setupSubviews() {
-        self.addSubview(self.containerView)
-        
-        self.containerView.insertSubview(self.segmentImageView, at: 0)
-        self.containerView.insertSubview(self.segmentTitleLabel, at: 1)
-        self.containerView.insertSubview(self.segmentBadgeLabel, at: 2)
-    }
-
-    // MARK: 私有方法
-    private func makeConstraints() {
-        self.containerView.bounds.size = self.containerSize
         
         switch self.style.position {
-        case .left, .right:
-            self.horizontalConstraints(withPosition: self.style.position)
-        case .top, .bottom:
-            self.verticalConstraints(withPosition: self.style.position)
-        case .background:
-            self.backgroundConstraints()
-        }
-        self.badgeConstraints()
-    }
-    
-    private func horizontalConstraints(withPosition position: TitleAndImagePosition) {
-        let margin = self.style.margin
-        let containerCenterY = self.containerView.bounds.height / 2.0
-        
-        switch position {
         case .left:
-            self.segmentImageView.frame.origin.x = margin
-            self.segmentTitleLabel.frame.origin.x = self.segmentImageView.frame.maxX + margin
+            self.containerView.axis = .horizontal
+            self.containerView.addArrangedSubview(self.titleView)
+            self.containerView.addArrangedSubview(self.imageView)
         case .right:
-            self.segmentTitleLabel.frame.origin.x = margin
-            self.segmentImageView.frame.origin.x = self.segmentTitleLabel.frame.maxX + margin
-        default:
-            break
-        }
-        self.segmentImageView.center.y = containerCenterY
-        self.segmentTitleLabel.center.y = containerCenterY
-        self.containerView.center = CGPoint(x: self.bounds.width / 2.0, y: self.bounds.height / 2.0)
-    }
-    
-    private func verticalConstraints(withPosition position: TitleAndImagePosition) {
-        let margin = self.style.margin
-        let containerCenterX = self.containerView.bounds.width / 2.0
-        
-        switch position {
+            self.containerView.axis = .horizontal
+            self.containerView.addArrangedSubview(self.imageView)
+            self.containerView.addArrangedSubview(self.titleView)
         case .top:
-            self.segmentImageView.frame.origin.y = margin
-            self.segmentTitleLabel.frame.origin.y = self.segmentImageView.frame.maxY + margin
+            self.containerView.axis = .vertical
+            self.containerView.addArrangedSubview(self.titleView)
+            self.containerView.addArrangedSubview(self.imageView)
         case .bottom:
-            self.segmentTitleLabel.frame.origin.y = margin
-            self.segmentImageView.frame.origin.y = self.segmentTitleLabel.frame.maxY + margin
-        default:
-            break
+            self.containerView.axis = .vertical
+            self.containerView.addArrangedSubview(self.imageView)
+            self.containerView.addArrangedSubview(self.titleView)
+        case .center:
+            self.addSubview(self.imageView)
+            self.addSubview(self.titleView)
         }
-        self.segmentImageView.center.x = containerCenterX
-        self.segmentTitleLabel.center.x = containerCenterX
-        self.containerView.center = CGPoint(x: self.bounds.width / 2.0, y: self.bounds.height / 2.0)
+        self.addSubview(self.badgeView)
     }
     
-    private func backgroundConstraints() {
-        let containerCenter = CGPoint(x: self.containerView.bounds.width / 2.0, y: self.containerView.bounds.height / 2.0)
-        
-        self.segmentImageView.center = containerCenter
-        self.segmentTitleLabel.center = containerCenter
-        self.containerView.center = CGPoint(x: self.bounds.width / 2.0, y: self.bounds.height / 2.0)
+    public override func updateConstraints() {
+        super.updateConstraints()
+        self.makeConstraints()
     }
     
-    private func badgeConstraints() {
-        let margin: CGFloat = 16.0
-        let badgeOffset: CGFloat = self.style.badgeOffset
+    // MARK:
+    private func configView() {
+        self.backgroundColor = UIColor.clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    // MARK: 私有方法
+    private func makeConstraints() {
+        switch self.style.position {
+        case .center:
+            self.makeCenterConstraints()
+        default:
+            self.makeContainerConstraints()
+        }
+        self.makeBadgeConstraints()
+        self.layoutIfNeeded()
+    }
+    
+    private func makeContainerConstraints() {
+        let containerLeading = self.containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.style.edgeInsets.left)
+        let containerTop = self.containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: self.style.edgeInsets.top)
+        let containerTrailing = self.containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: self.style.edgeInsets.right)
+        let containerBottom = self.containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.style.edgeInsets.bottom)
+        NSLayoutConstraint.activate([containerLeading, containerTop, containerTrailing, containerBottom])
+    }
+    
+    private func makeCenterConstraints() {
+        let imageLeading = self.imageView.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: self.style.edgeInsets.left)
+        let imageTop = self.imageView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: self.style.edgeInsets.top)
+        let imageTrailing = self.imageView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: self.style.edgeInsets.right)
+        let imageBottom = self.imageView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: self.style.edgeInsets.bottom)
+        let imageCenterX = self.imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let imageCenterY = self.imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        NSLayoutConstraint.activate([imageLeading, imageTop, imageTrailing, imageBottom, imageCenterX, imageCenterY])
         
-        self.segmentBadgeLabel.frame.size = CGSize(width: margin, height: margin)
-        self.segmentBadgeLabel.center = CGPoint(x: self.containerView.bounds.maxX - badgeOffset, y: self.containerView.bounds.minY + badgeOffset)
+        let titleLeading = self.titleView.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: self.style.edgeInsets.left)
+        let titleTop = self.titleView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: self.style.edgeInsets.top)
+        let titleTrailing = self.titleView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: self.style.edgeInsets.right)
+        let titleBottom = self.titleView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: self.style.edgeInsets.bottom)
+        let titleCenterX = self.titleView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let titleCenterY = self.titleView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        NSLayoutConstraint.activate([titleLeading, titleTop, titleTrailing, titleBottom, titleCenterX, titleCenterY])
+    }
+    
+    private func makeBadgeConstraints() {
+        if self.style.badgeStyle == .number {
+            let containerLeading = self.badgeContainerLabel.leadingAnchor.constraint(equalTo: self.badgeView.leadingAnchor, constant: 4.0)
+            let containerTrailing = self.badgeContainerLabel.trailingAnchor.constraint(equalTo: self.badgeView.trailingAnchor, constant: -4.0)
+            let containerCenterX = self.badgeContainerLabel.centerXAnchor.constraint(equalTo: self.badgeView.centerXAnchor)
+            let containerCenterY = self.badgeContainerLabel.centerYAnchor.constraint(equalTo: self.badgeView.centerYAnchor)
+            NSLayoutConstraint.activate([containerLeading, containerTrailing, containerCenterX, containerCenterY])
+        }
+        
+        let badgeWidth = self.badgeView.widthAnchor.constraint(greaterThanOrEqualToConstant: self.style.badgeStyle == .number ? 20.0 : 8.0)
+        let badgeHeight = self.badgeView.heightAnchor.constraint(equalToConstant: self.style.badgeStyle == .number ? 20.0 : 8.0)
+        let badgeCenterX = self.badgeView.centerXAnchor.constraint(equalTo: self.trailingAnchor, constant: self.style.badgeEdgeInsets.left + self.style.badgeEdgeInsets.right)
+        let badgeCenterY = self.badgeView.centerYAnchor.constraint(equalTo: self.topAnchor, constant: self.style.badgeEdgeInsets.top + self.style.badgeEdgeInsets.bottom)
+        NSLayoutConstraint.activate([badgeWidth, badgeHeight, badgeCenterX, badgeCenterY])
     }
 }

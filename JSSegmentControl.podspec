@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name             = 'JSSegmentControl'
-    s.version          = '1.2.4'
+    s.version          = '1.2.5'
     s.summary          = '一个简便易用的自定义 Segment 框架。'
   
     s.description      = <<-DESC
@@ -25,12 +25,5 @@ Pod::Spec.new do |s|
     s.subspec "Core" do |ss|
       ss.source_files = "Sources/Core/"
       ss.frameworks = 'UIKit', 'Foundation'
-    end
-
-    s.subspec "RxSwift" do |ss|
-      ss.source_files = "Sources/RxSegmentControl/"
-      ss.dependency "JSSegmentControl/Core"
-      ss.dependency "RxSwift", "~> 5.0"
-      ss.dependency "RxCocoa", "~> 5.0"
     end
   end

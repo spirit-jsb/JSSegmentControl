@@ -9,24 +9,10 @@
 /* Begin PBXBuildFile section */
 		50335E1121C8EF1200321174 /* JSContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50335E1021C8EF1200321174 /* JSContentView.swift */; };
 		50335E1521CA11E500321174 /* JSSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50335E1421CA11E500321174 /* JSSegmentControl.swift */; };
-		50409BEB21D08D6C00A8A3A9 /* JSTitleContainerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BEA21D08D6C00A8A3A9 /* JSTitleContainerView+Rx.swift */; };
-		50409BFA21D0CA8F00A8A3A9 /* JSTitleContainerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409BF921D0CA8F00A8A3A9 /* JSTitleContainerView+Extension.swift */; };
 		50409C4B21D0E1A300A8A3A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50409C1321D0E1A300A8A3A9 /* LaunchScreen.storyboard */; };
 		50409C4C21D0E1A300A8A3A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50409C1521D0E1A300A8A3A9 /* Main.storyboard */; };
 		50409C4D21D0E1A300A8A3A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50409C1921D0E1A300A8A3A9 /* Assets.xcassets */; };
 		50409C4E21D0E1A300A8A3A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C1B21D0E1A300A8A3A9 /* ViewController.swift */; };
-		50409C4F21D0E1A300A8A3A9 /* Test6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C1D21D0E1A300A8A3A9 /* Test6ViewController.swift */; };
-		50409C5021D0E1A300A8A3A9 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C1F21D0E1A300A8A3A9 /* Test1ViewController.swift */; };
-		50409C5121D0E1A300A8A3A9 /* Test4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2121D0E1A300A8A3A9 /* Test4ViewController.swift */; };
-		50409C5221D0E1A300A8A3A9 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2321D0E1A300A8A3A9 /* Test2ViewController.swift */; };
-		50409C5321D0E1A300A8A3A9 /* Test9TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2521D0E1A300A8A3A9 /* Test9TableView.swift */; };
-		50409C5421D0E1A300A8A3A9 /* Test9CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */; };
-		50409C5521D0E1A300A8A3A9 /* Test9TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C2721D0E1A300A8A3A9 /* Test9TableViewController.xib */; };
-		50409C5621D0E1A300A8A3A9 /* Test9TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2821D0E1A300A8A3A9 /* Test9TableViewController.swift */; };
-		50409C5721D0E1A300A8A3A9 /* Test9CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */; };
-		50409C5821D0E1A300A8A3A9 /* Test9ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2A21D0E1A300A8A3A9 /* Test9ViewController.swift */; };
-		50409C5921D0E1A300A8A3A9 /* Test8ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2C21D0E1A300A8A3A9 /* Test8ViewController.swift */; };
-		50409C5A21D0E1A300A8A3A9 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2E21D0E1A300A8A3A9 /* Test3ViewController.swift */; };
 		50409C5B21D0E1A300A8A3A9 /* ShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C3021D0E1A300A8A3A9 /* ShowViewController.xib */; };
 		50409C5C21D0E1A300A8A3A9 /* Child3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3121D0E1A300A8A3A9 /* Child3ViewController.swift */; };
 		50409C5D21D0E1A300A8A3A9 /* Child2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3221D0E1A300A8A3A9 /* Child2ViewController.swift */; };
@@ -35,34 +21,31 @@
 		50409C6021D0E1A300A8A3A9 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3521D0E1A300A8A3A9 /* ShowViewController.swift */; };
 		50409C6121D0E1A300A8A3A9 /* Child2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C3621D0E1A300A8A3A9 /* Child2ViewController.xib */; };
 		50409C6221D0E1A300A8A3A9 /* Child3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C3721D0E1A300A8A3A9 /* Child3ViewController.xib */; };
-		50409C6321D0E1A300A8A3A9 /* Test7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3921D0E1A300A8A3A9 /* Test7ViewController.swift */; };
-		50409C6421D0E1A300A8A3A9 /* SegmentTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 50409C3B21D0E1A300A8A3A9 /* SegmentTemplate.json */; };
-		50409C6521D0E1A300A8A3A9 /* RxTest10ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3D21D0E1A300A8A3A9 /* RxTest10ViewController.swift */; };
-		50409C6621D0E1A300A8A3A9 /* RxTest11TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C3F21D0E1A300A8A3A9 /* RxTest11TableViewController.xib */; };
-		50409C6721D0E1A300A8A3A9 /* RxTest11TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4021D0E1A300A8A3A9 /* RxTest11TableView.swift */; };
-		50409C6821D0E1A300A8A3A9 /* RxTest11ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4121D0E1A300A8A3A9 /* RxTest11ViewController.swift */; };
-		50409C6921D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C4221D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib */; };
-		50409C6A21D0E1A300A8A3A9 /* RxTest11TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4321D0E1A300A8A3A9 /* RxTest11TableViewController.swift */; };
-		50409C6B21D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4421D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift */; };
-		50409C6C21D0E1A300A8A3A9 /* Test5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4621D0E1A300A8A3A9 /* Test5ViewController.swift */; };
 		50409C6D21D0E1A300A8A3A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4821D0E1A300A8A3A9 /* AppDelegate.swift */; };
 		50409C7021D0E22400A8A3A9 /* JSSegmentControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C02E2621B96B86003669D3 /* JSSegmentControl.framework */; };
 		50409C7121D0E22400A8A3A9 /* JSSegmentControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50C02E2621B96B86003669D3 /* JSSegmentControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50A2707B21CA8F59008EE1E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A2707A21CA8F59008EE1E0 /* Foundation.framework */; };
 		50A2707D21CA8F5D008EE1E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A2707C21CA8F5D008EE1E0 /* UIKit.framework */; };
-		50A3BC5C21CE717900BA96CD /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC5B21CE717900BA96CD /* SegmentModel.swift */; };
-		50A3BC5E21CE718A00BA96CD /* SegmentModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC5D21CE718A00BA96CD /* SegmentModelType.swift */; };
-		50A3BC6021CE733900BA96CD /* SegmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC5F21CE733900BA96CD /* SegmentDataSource.swift */; };
-		50A3BC6221CE7EE300BA96CD /* RxSegmentDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC6121CE7EE300BA96CD /* RxSegmentDataSourceType.swift */; };
-		50A3BC6421CE7FCD00BA96CD /* RxSegmentReloadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC6321CE7FCD00BA96CD /* RxSegmentReloadDataSource.swift */; };
-		50A3BC6621CE824E00BA96CD /* RxSegmentDataSourceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC6521CE824E00BA96CD /* RxSegmentDataSourceProxy.swift */; };
-		50A3BC6821CE863500BA96CD /* SegmentControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC6721CE863500BA96CD /* SegmentControl+Rx.swift */; };
-		50A3BC6A21CE8BBD00BA96CD /* RxSegmentDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3BC6921CE8BBD00BA96CD /* RxSegmentDelegateProxy.swift */; };
 		50C02E7821B9707B003669D3 /* JSSegmentControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 50C02E3221B96C2C003669D3 /* JSSegmentControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D183D421C37BC100A5CB99 /* JSTitleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D183D321C37BC100A5CB99 /* JSTitleContainerView.swift */; };
 		50D183D621C37C6900A5CB99 /* JSSegmentControlStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D183D521C37C6900A5CB99 /* JSSegmentControlStyle.swift */; };
 		50D183D821C3C3D900A5CB99 /* JSTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D183D721C3C3D900A5CB99 /* JSTitleView.swift */; };
 		50D914CC21C3E9A800640A5D /* JSSegmentControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D914CB21C3E9A800640A5D /* JSSegmentControlProtocol.swift */; };
+		50E5146F22D4426400E8C7A9 /* JSSegmentControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5146E22D4426400E8C7A9 /* JSSegmentControl+Extension.swift */; };
+		50E5147022D468B900E8C7A9 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C1F21D0E1A300A8A3A9 /* Test1ViewController.swift */; };
+		50F1ACF222D58E2600156B01 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2321D0E1A300A8A3A9 /* Test2ViewController.swift */; };
+		50F1ACF322D5D73600156B01 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2E21D0E1A300A8A3A9 /* Test3ViewController.swift */; };
+		50F1ACF422D5D7B700156B01 /* Test4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2121D0E1A300A8A3A9 /* Test4ViewController.swift */; };
+		50F1ACF522D5E02700156B01 /* Test6ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C1D21D0E1A300A8A3A9 /* Test6ViewController.swift */; };
+		50F1ACF622D5EB4400156B01 /* Test8ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2C21D0E1A300A8A3A9 /* Test8ViewController.swift */; };
+		50F1ACF722D5F39D00156B01 /* Test5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C4621D0E1A300A8A3A9 /* Test5ViewController.swift */; };
+		50F1ACF822D5F64C00156B01 /* Test7ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C3921D0E1A300A8A3A9 /* Test7ViewController.swift */; };
+		50F1AD9022D869FD00156B01 /* Test9ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2A21D0E1A300A8A3A9 /* Test9ViewController.swift */; };
+		50F1AD9122D869FF00156B01 /* Test9TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2521D0E1A300A8A3A9 /* Test9TableView.swift */; };
+		50F1AD9222D86A0200156B01 /* Test9TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2821D0E1A300A8A3A9 /* Test9TableViewController.swift */; };
+		50F1AD9322D86A0700156B01 /* Test9TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C2721D0E1A300A8A3A9 /* Test9TableViewController.xib */; };
+		50F1AD9422D86A0A00156B01 /* Test9CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */; };
+		50F1AD9522D86A0D00156B01 /* Test9CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +75,6 @@
 /* Begin PBXFileReference section */
 		50335E1021C8EF1200321174 /* JSContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSContentView.swift; sourceTree = "<group>"; };
 		50335E1421CA11E500321174 /* JSSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSSegmentControl.swift; sourceTree = "<group>"; };
-		50409BEA21D08D6C00A8A3A9 /* JSTitleContainerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSTitleContainerView+Rx.swift"; sourceTree = "<group>"; };
-		50409BF921D0CA8F00A8A3A9 /* JSTitleContainerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSTitleContainerView+Extension.swift"; sourceTree = "<group>"; };
 		50409BFF21D0E14D00A8A3A9 /* JSSegmentControl-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JSSegmentControl-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50409C1421D0E1A300A8A3A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50409C1621D0E1A300A8A3A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,27 +101,11 @@
 		50409C3621D0E1A300A8A3A9 /* Child2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Child2ViewController.xib; sourceTree = "<group>"; };
 		50409C3721D0E1A300A8A3A9 /* Child3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Child3ViewController.xib; sourceTree = "<group>"; };
 		50409C3921D0E1A300A8A3A9 /* Test7ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test7ViewController.swift; sourceTree = "<group>"; };
-		50409C3B21D0E1A300A8A3A9 /* SegmentTemplate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SegmentTemplate.json; sourceTree = "<group>"; };
-		50409C3D21D0E1A300A8A3A9 /* RxTest10ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTest10ViewController.swift; sourceTree = "<group>"; };
-		50409C3F21D0E1A300A8A3A9 /* RxTest11TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RxTest11TableViewController.xib; sourceTree = "<group>"; };
-		50409C4021D0E1A300A8A3A9 /* RxTest11TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTest11TableView.swift; sourceTree = "<group>"; };
-		50409C4121D0E1A300A8A3A9 /* RxTest11ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTest11ViewController.swift; sourceTree = "<group>"; };
-		50409C4221D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RxTest11CollectionViewController.xib; sourceTree = "<group>"; };
-		50409C4321D0E1A300A8A3A9 /* RxTest11TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTest11TableViewController.swift; sourceTree = "<group>"; };
-		50409C4421D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTest11CollectionViewController.swift; sourceTree = "<group>"; };
 		50409C4621D0E1A300A8A3A9 /* Test5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test5ViewController.swift; sourceTree = "<group>"; };
 		50409C4821D0E1A300A8A3A9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50409C4A21D0E1A300A8A3A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A2707A21CA8F59008EE1E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50A2707C21CA8F5D008EE1E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		50A3BC5B21CE717900BA96CD /* SegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModel.swift; sourceTree = "<group>"; };
-		50A3BC5D21CE718A00BA96CD /* SegmentModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModelType.swift; sourceTree = "<group>"; };
-		50A3BC5F21CE733900BA96CD /* SegmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentDataSource.swift; sourceTree = "<group>"; };
-		50A3BC6121CE7EE300BA96CD /* RxSegmentDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSegmentDataSourceType.swift; sourceTree = "<group>"; };
-		50A3BC6321CE7FCD00BA96CD /* RxSegmentReloadDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSegmentReloadDataSource.swift; sourceTree = "<group>"; };
-		50A3BC6521CE824E00BA96CD /* RxSegmentDataSourceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSegmentDataSourceProxy.swift; sourceTree = "<group>"; };
-		50A3BC6721CE863500BA96CD /* SegmentControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentControl+Rx.swift"; sourceTree = "<group>"; };
-		50A3BC6921CE8BBD00BA96CD /* RxSegmentDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSegmentDelegateProxy.swift; sourceTree = "<group>"; };
 		50C02E2621B96B86003669D3 /* JSSegmentControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSSegmentControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C02E3221B96C2C003669D3 /* JSSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSegmentControl.h; sourceTree = "<group>"; };
 		50C02E3321B96C2C003669D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +113,7 @@
 		50D183D521C37C6900A5CB99 /* JSSegmentControlStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSSegmentControlStyle.swift; sourceTree = "<group>"; };
 		50D183D721C3C3D900A5CB99 /* JSTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSTitleView.swift; sourceTree = "<group>"; };
 		50D914CB21C3E9A800640A5D /* JSSegmentControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSSegmentControlProtocol.swift; sourceTree = "<group>"; };
+		50E5146E22D4426400E8C7A9 /* JSSegmentControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSSegmentControl+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +188,6 @@
 				50409C3821D0E1A300A8A3A9 /* 刷新内容和标题 */,
 				50409C2B21D0E1A300A8A3A9 /* 自定义位置 */,
 				50409C2421D0E1A300A8A3A9 /* 复杂的自定义位置 */,
-				50409C3A21D0E1A300A8A3A9 /* RxSegmentControl */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,12 +227,12 @@
 		50409C2421D0E1A300A8A3A9 /* 复杂的自定义位置 */ = {
 			isa = PBXGroup;
 			children = (
-				50409C2A21D0E1A300A8A3A9 /* Test9ViewController.swift */,
+				50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */,
+				50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */,
 				50409C2521D0E1A300A8A3A9 /* Test9TableView.swift */,
 				50409C2821D0E1A300A8A3A9 /* Test9TableViewController.swift */,
 				50409C2721D0E1A300A8A3A9 /* Test9TableViewController.xib */,
-				50409C2921D0E1A300A8A3A9 /* Test9CollectionViewController.swift */,
-				50409C2621D0E1A300A8A3A9 /* Test9CollectionViewController.xib */,
+				50409C2A21D0E1A300A8A3A9 /* Test9ViewController.swift */,
 			);
 			path = "复杂的自定义位置";
 			sourceTree = "<group>";
@@ -311,37 +276,6 @@
 			path = "刷新内容和标题";
 			sourceTree = "<group>";
 		};
-		50409C3A21D0E1A300A8A3A9 /* RxSegmentControl */ = {
-			isa = PBXGroup;
-			children = (
-				50409C3B21D0E1A300A8A3A9 /* SegmentTemplate.json */,
-				50409C3C21D0E1A300A8A3A9 /* 遮盖+缩放+滚动条 */,
-				50409C3E21D0E1A300A8A3A9 /* 复杂的自定义位置 */,
-			);
-			path = RxSegmentControl;
-			sourceTree = "<group>";
-		};
-		50409C3C21D0E1A300A8A3A9 /* 遮盖+缩放+滚动条 */ = {
-			isa = PBXGroup;
-			children = (
-				50409C3D21D0E1A300A8A3A9 /* RxTest10ViewController.swift */,
-			);
-			path = "遮盖+缩放+滚动条";
-			sourceTree = "<group>";
-		};
-		50409C3E21D0E1A300A8A3A9 /* 复杂的自定义位置 */ = {
-			isa = PBXGroup;
-			children = (
-				50409C4121D0E1A300A8A3A9 /* RxTest11ViewController.swift */,
-				50409C4021D0E1A300A8A3A9 /* RxTest11TableView.swift */,
-				50409C4321D0E1A300A8A3A9 /* RxTest11TableViewController.swift */,
-				50409C3F21D0E1A300A8A3A9 /* RxTest11TableViewController.xib */,
-				50409C4421D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift */,
-				50409C4221D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib */,
-			);
-			path = "复杂的自定义位置";
-			sourceTree = "<group>";
-		};
 		50409C4521D0E1A300A8A3A9 /* 指定Container大小 */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,25 +309,9 @@
 				50D183D721C3C3D900A5CB99 /* JSTitleView.swift */,
 				50D183D321C37BC100A5CB99 /* JSTitleContainerView.swift */,
 				50335E1021C8EF1200321174 /* JSContentView.swift */,
+				50E5146E22D4426400E8C7A9 /* JSSegmentControl+Extension.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		509409E121CDE927009E8DBE /* RxSegmentControl */ = {
-			isa = PBXGroup;
-			children = (
-				50A3BC5D21CE718A00BA96CD /* SegmentModelType.swift */,
-				50A3BC5B21CE717900BA96CD /* SegmentModel.swift */,
-				50A3BC5F21CE733900BA96CD /* SegmentDataSource.swift */,
-				50A3BC6121CE7EE300BA96CD /* RxSegmentDataSourceType.swift */,
-				50A3BC6321CE7FCD00BA96CD /* RxSegmentReloadDataSource.swift */,
-				50A3BC6521CE824E00BA96CD /* RxSegmentDataSourceProxy.swift */,
-				50A3BC6921CE8BBD00BA96CD /* RxSegmentDelegateProxy.swift */,
-				50A3BC6721CE863500BA96CD /* SegmentControl+Rx.swift */,
-				50409BEA21D08D6C00A8A3A9 /* JSTitleContainerView+Rx.swift */,
-				50409BF921D0CA8F00A8A3A9 /* JSTitleContainerView+Extension.swift */,
-			);
-			path = RxSegmentControl;
 			sourceTree = "<group>";
 		};
 		50A2707921CA8F58008EE1E0 /* Frameworks */ = {
@@ -428,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				50828D1C21C296D6001FFB21 /* Core */,
-				509409E121CDE927009E8DBE /* RxSegmentControl */,
 				50C02E3221B96C2C003669D3 /* JSSegmentControl.h */,
 				50C02E3321B96C2C003669D3 /* Info.plist */,
 			);
@@ -477,7 +394,6 @@
 				50C02E2221B96B86003669D3 /* Sources */,
 				50C02E2321B96B86003669D3 /* Frameworks */,
 				50C02E2421B96B86003669D3 /* Resources */,
-				509409E021CDE84D009E8DBE /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -531,16 +447,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F1AD9522D86A0D00156B01 /* Test9CollectionViewController.xib in Resources */,
 				50409C4B21D0E1A300A8A3A9 /* LaunchScreen.storyboard in Resources */,
-				50409C6621D0E1A300A8A3A9 /* RxTest11TableViewController.xib in Resources */,
-				50409C6421D0E1A300A8A3A9 /* SegmentTemplate.json in Resources */,
 				50409C5B21D0E1A300A8A3A9 /* ShowViewController.xib in Resources */,
-				50409C5521D0E1A300A8A3A9 /* Test9TableViewController.xib in Resources */,
 				50409C4D21D0E1A300A8A3A9 /* Assets.xcassets in Resources */,
-				50409C5421D0E1A300A8A3A9 /* Test9CollectionViewController.xib in Resources */,
 				50409C6221D0E1A300A8A3A9 /* Child3ViewController.xib in Resources */,
-				50409C6921D0E1A300A8A3A9 /* RxTest11CollectionViewController.xib in Resources */,
 				50409C5F21D0E1A300A8A3A9 /* Child1ViewController.xib in Resources */,
+				50F1AD9322D86A0700156B01 /* Test9TableViewController.xib in Resources */,
 				50409C6121D0E1A300A8A3A9 /* Child2ViewController.xib in Resources */,
 				50409C4C21D0E1A300A8A3A9 /* Main.storyboard in Resources */,
 			);
@@ -564,30 +477,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
-			);
-			name = Carthage;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-		509409E021CDE84D009E8DBE /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -605,29 +495,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50409C5221D0E1A300A8A3A9 /* Test2ViewController.swift in Sources */,
-				50409C5921D0E1A300A8A3A9 /* Test8ViewController.swift in Sources */,
-				50409C5821D0E1A300A8A3A9 /* Test9ViewController.swift in Sources */,
+				50F1AD9422D86A0A00156B01 /* Test9CollectionViewController.swift in Sources */,
 				50409C5C21D0E1A300A8A3A9 /* Child3ViewController.swift in Sources */,
-				50409C5321D0E1A300A8A3A9 /* Test9TableView.swift in Sources */,
-				50409C6A21D0E1A300A8A3A9 /* RxTest11TableViewController.swift in Sources */,
+				50F1AD9222D86A0200156B01 /* Test9TableViewController.swift in Sources */,
 				50409C6021D0E1A300A8A3A9 /* ShowViewController.swift in Sources */,
-				50409C5721D0E1A300A8A3A9 /* Test9CollectionViewController.swift in Sources */,
-				50409C6B21D0E1A300A8A3A9 /* RxTest11CollectionViewController.swift in Sources */,
-				50409C6521D0E1A300A8A3A9 /* RxTest10ViewController.swift in Sources */,
-				50409C5021D0E1A300A8A3A9 /* Test1ViewController.swift in Sources */,
 				50409C4E21D0E1A300A8A3A9 /* ViewController.swift in Sources */,
-				50409C6C21D0E1A300A8A3A9 /* Test5ViewController.swift in Sources */,
-				50409C6821D0E1A300A8A3A9 /* RxTest11ViewController.swift in Sources */,
-				50409C5A21D0E1A300A8A3A9 /* Test3ViewController.swift in Sources */,
-				50409C6721D0E1A300A8A3A9 /* RxTest11TableView.swift in Sources */,
-				50409C6321D0E1A300A8A3A9 /* Test7ViewController.swift in Sources */,
 				50409C5D21D0E1A300A8A3A9 /* Child2ViewController.swift in Sources */,
-				50409C4F21D0E1A300A8A3A9 /* Test6ViewController.swift in Sources */,
-				50409C5621D0E1A300A8A3A9 /* Test9TableViewController.swift in Sources */,
-				50409C5121D0E1A300A8A3A9 /* Test4ViewController.swift in Sources */,
+				50F1AD9022D869FD00156B01 /* Test9ViewController.swift in Sources */,
 				50409C5E21D0E1A300A8A3A9 /* Child1ViewController.swift in Sources */,
+				50F1ACF222D58E2600156B01 /* Test2ViewController.swift in Sources */,
+				50F1ACF522D5E02700156B01 /* Test6ViewController.swift in Sources */,
+				50F1ACF622D5EB4400156B01 /* Test8ViewController.swift in Sources */,
 				50409C6D21D0E1A300A8A3A9 /* AppDelegate.swift in Sources */,
+				50F1ACF422D5D7B700156B01 /* Test4ViewController.swift in Sources */,
+				50F1AD9122D869FF00156B01 /* Test9TableView.swift in Sources */,
+				50F1ACF322D5D73600156B01 /* Test3ViewController.swift in Sources */,
+				50F1ACF722D5F39D00156B01 /* Test5ViewController.swift in Sources */,
+				50F1ACF822D5F64C00156B01 /* Test7ViewController.swift in Sources */,
+				50E5147022D468B900E8C7A9 /* Test1ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,20 +522,11 @@
 			files = (
 				50D914CC21C3E9A800640A5D /* JSSegmentControlProtocol.swift in Sources */,
 				50D183D621C37C6900A5CB99 /* JSSegmentControlStyle.swift in Sources */,
-				50409BFA21D0CA8F00A8A3A9 /* JSTitleContainerView+Extension.swift in Sources */,
 				50D183D421C37BC100A5CB99 /* JSTitleContainerView.swift in Sources */,
-				50A3BC6621CE824E00BA96CD /* RxSegmentDataSourceProxy.swift in Sources */,
-				50409BEB21D08D6C00A8A3A9 /* JSTitleContainerView+Rx.swift in Sources */,
-				50A3BC6821CE863500BA96CD /* SegmentControl+Rx.swift in Sources */,
 				50335E1121C8EF1200321174 /* JSContentView.swift in Sources */,
 				50335E1521CA11E500321174 /* JSSegmentControl.swift in Sources */,
-				50A3BC6A21CE8BBD00BA96CD /* RxSegmentDelegateProxy.swift in Sources */,
 				50D183D821C3C3D900A5CB99 /* JSTitleView.swift in Sources */,
-				50A3BC6221CE7EE300BA96CD /* RxSegmentDataSourceType.swift in Sources */,
-				50A3BC5C21CE717900BA96CD /* SegmentModel.swift in Sources */,
-				50A3BC6021CE733900BA96CD /* SegmentDataSource.swift in Sources */,
-				50A3BC6421CE7FCD00BA96CD /* RxSegmentReloadDataSource.swift in Sources */,
-				50A3BC5E21CE718A00BA96CD /* SegmentModelType.swift in Sources */,
+				50E5146F22D4426400E8C7A9 /* JSSegmentControl+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,10 +566,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UUJQRQRH7L;
+				DEVELOPMENT_TEAM = EZ6566MH44;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Demo/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,10 +587,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UUJQRQRH7L;
+				DEVELOPMENT_TEAM = EZ6566MH44;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = Demo/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -779,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -839,7 +715,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

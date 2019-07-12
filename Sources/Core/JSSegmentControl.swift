@@ -8,128 +8,95 @@
 
 import UIKit
 
-public class JSSegmentControl: UIView {
-
-    // MARK: 属性
-    public typealias CompletionHandle = () -> ()
+public class JSSegmentControl: NSObject {
     
-    public weak var dataSource: JSSegmentControlDataSource?
-    public weak var delegate: JSSegmentControlDelegate?
-    
-    private let style: JSSegmentControlStyle
-    
-    private weak var parent: UIViewController?
-    
-    private lazy var titleView: JSTitleView = {
-        let titleView = JSTitleView(frame: CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.style.titleStyle.titleHeight), segmentStyle: self.style)
-        titleView.titleDataSource = self
-        titleView.titleDelegate = self
-        return titleView
-    }()
-    
-    private lazy var contentView: JSContentView = {
-        let contentView = JSContentView(frame: CGRect(x: 0.0, y: self.style.titleStyle.titleHeight, width: self.bounds.width, height: self.bounds.height - self.style.titleStyle.titleHeight), segmentStyle: self.style, parentViewController: self.parent)
-        contentView.contentDataSource = self
-        contentView.contentDelegate = self
-        return contentView
-    }()
-    
-    private var dataSourceCount: Int {
-        get {
-            return self.dataSource?.numberOfSegments() ?? 0
+    // MARK:
+    public weak var title: JSTitleView? = nil {
+        didSet {
+            if let title = self.title, let _ = self.dataSource, let _ = self.delegate {
+                title.titleDataSource = self
+                title.titleDelegate = self
+                title.reload()
+            }
         }
     }
     
-    // MARK: 初始化
-    public init(segmentStyle style: JSSegmentControlStyle) {
-        self.style = style
-        super.init(frame: .zero)
-    }
-
-    public init(frame: CGRect, segmentStyle style: JSSegmentControlStyle, parentViewController parent: UIViewController) {
-        self.style = style
-        self.parent = parent
-        super.init(frame: frame)
+    public weak var content: JSContentView? = nil {
+        didSet {
+            if let content = self.content, let _ = self.dataSource, let _ = self.delegate {
+                content.contentDataSource = self
+                content.contentDelegate = self
+                content.reload()
+            }
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public weak var dataSource: JSSegmentControlDataSource! {
+        didSet {
+            if let title = self.title, let content = self.content, let _ = self.dataSource {
+                title.titleDataSource = self
+                title.reload()
+                content.contentDataSource = self
+                content.reload()
+            }
+        }
     }
     
+    public weak var delegate: JSSegmentControlDelegate? {
+        didSet {
+            if let title = self.title, let content = self.content, let _ = self.delegate {
+                title.titleDelegate = self
+                content.contentDelegate = self
+            }
+        }
+    }
+    
+    // MAKR:
     deinit {
         #if DEBUG
-        print("DEINIT: \(#file)")
+        let function = #function
+        let file = #file.split(separator: "/").last ?? "null"
+        let line = #line
+        print(file, line, function)
         #endif
     }
     
-    // MARK: 公开方法
-    public func dequeueReusableTitle(at index: Int) -> JSTitleContainerView {
-        return self.titleView.dequeueReusableTitle(at: index) ?? JSTitleContainerView(style: self.style.titleContainerStyle)
+    // MARK:
+    public func dequeueReusableTitle(at index: Int) -> JSTitleContainerView? {
+        return self.title?.dequeueReusableTitle(at: index)
     }
     
     public func dequeueReusableContent(at index: Int) -> UIViewController? {
-        return self.contentView.dequeueReusableContent(at: index)
+        return self.content?.dequeueReusableContent(at: index)
     }
     
-    public func reloadData() {
-        self.titleView.reloadData()
-        self.contentView.reloadData()
+    public func reload() {
+        self.title?.reload()
+        self.content?.reload()
     }
     
-    public func selectedIndex(_ index: Int) {
-        self.titleView.selectedIndex(index)
-    }
-    
-    public func configuration(titleView: JSTitleView, contentView: JSContentView, completionHandle: CompletionHandle? = nil) {
-        self.titleView = titleView
-        self.contentView = contentView
-        
-        self.titleView.titleDataSource = self
-        self.titleView.titleDelegate = self
-        self.contentView.contentDataSource = self
-        self.contentView.contentDelegate = self
-        
-        if let _completionHandle = completionHandle {
-            _completionHandle()
-        }
-    }
-
-    // MARK: 重写父类方法
-    public override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        guard let _ = newSuperview else {
-            return
-        }
-        self.setupSubviews()
-    }
-    
-    // MARK: 设置方法
-    private func setupSubviews() {
-        self.addSubview(self.titleView)
-        self.addSubview(self.contentView)
+    public func selected(index: Int) {
+        self.title?.selected(index: index)
     }
 }
 
 extension JSSegmentControl: JSTitleDataSource {
-
+    
     // MARK: JSTitleDataSource
     func numberOfTitles() -> Int {
-        return self.dataSourceCount
+        return self.dataSource.numberOfSegments()
     }
     
     func title(_ title: JSTitleView, containerAt index: Int) -> JSTitleContainerView {
-        guard let dataSource = self.dataSource else {
-            fatalError("请实现 JSSegmentControlDataSource 协议")
-        }
-        return dataSource.segmentControl(self, titleAt: index)
+        return self.dataSource.segmentControl(self, titleAt: index)
     }
 }
 
 extension JSSegmentControl: JSTitleDelegate {
-
+    
     // MARK: JSTitleDelegate
     func title(_ title: JSTitleView, didSelectAt index: Int) {
-        self.contentView.selectedIndex(index)
+        self.content?.selected(index: index)
         self.delegate?.segmentControl?(self, didSelectAt: index)
     }
     
@@ -139,44 +106,41 @@ extension JSSegmentControl: JSTitleDelegate {
 }
 
 extension JSSegmentControl: JSContentDataSource {
-
-    // MARK: JSContentDataSource
+    
+    // MARK: JSTitleDataSource
     func numberOfContents() -> Int {
-        return self.dataSourceCount
+        return self.dataSource.numberOfSegments()
     }
     
     func content(_ content: JSContentView, containerAt index: Int) -> UIViewController {
-        guard let dataSource = self.dataSource else {
-            fatalError("请实现 JSSegmentControlDataSource 协议")
-        }
-        return dataSource.segmentControl(self, contentAt: index)
+        return self.dataSource.segmentControl(self, contentAt: index)
     }
 }
 
 extension JSSegmentControl: JSContentDelegate {
-
-    // MARK: JSContentDelegate
-    func contentSelectedAnimated(withProgress progress: CGFloat, from oldIndex: Int, to currentIndex: Int) {
-        self.titleView.selectedIndexAnimated(withProgress: progress, fromOldIndex: oldIndex, toCurrentIndex: currentIndex)
+    
+    // MARK: JSTitleDelegate
+    func content(selected index: Int) {
+        self.title?.selected(index: index)
     }
     
-    func contentSelectedScrollAnimated(to currentIndex: Int) {
-        self.titleView.selectedIndexScrollAnimated(toCurrentIndex: currentIndex)
+    func content(selectedAnimation progress: CGFloat, from pastIndex: Int, to presentIndex: Int) {
+        self.title?.selectedAnimation(progress: progress, from: pastIndex, to: presentIndex)
     }
     
-    func content(_ content: JSContentView, controllerWillAppear controller: UIViewController, at index: Int) {
-        self.delegate?.segmentControl?(self, controllerWillAppear: controller, at: index)
+    func content(_ content: JSContentView, willAppear controller: UIViewController, forItemAt index: Int) {
+        self.delegate?.segmentControl?(self, willAppear: controller, forItemAt: index)
     }
     
-    func content(_ content: JSContentView, controllerDidAppear controller: UIViewController, at index: Int) {
-        self.delegate?.segmentControl?(self, controllerDidAppear: controller, at: index)
+    func content(_ content: JSContentView, didAppear controller: UIViewController, forItemAt index: Int) {
+        self.delegate?.segmentControl?(self, didAppear: controller, forItemAt: index)
     }
     
-    func content(_ content: JSContentView, controllerWillDisappear controller: UIViewController, at index: Int) {
-        self.delegate?.segmentControl?(self, controllerWillDisappear: controller, at: index)
+    func content(_ content: JSContentView, willDisappear controller: UIViewController, forItemAt index: Int) {
+        self.delegate?.segmentControl?(self, willDisappear: controller, forItemAt: index)
     }
     
-    func content(_ content: JSContentView, controllerDidDisappear controller: UIViewController, at index: Int) {
-        self.delegate?.segmentControl?(self, controllerDidDisappear: controller, at: index)
+    func content(_ content: JSContentView, didDisappear controller: UIViewController, forItemAt index: Int) {
+        self.delegate?.segmentControl?(self, didDisappear: controller, forItemAt: index)
     }
 }

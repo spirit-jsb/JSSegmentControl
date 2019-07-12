@@ -15,20 +15,13 @@ class Test9ViewController: UIViewController {
     var dataSource = ["新闻头条", "国际要闻", "体育", "中国足球", "汽车", "囧途旅游", "幽默搞笑", "视频", "无厘头", "美女图片", "今日房价", "头像",]
     var childScrollView: UIScrollView?
     
-    lazy var style: JSSegmentControlStyle = {
-        var style = JSSegmentControlStyle()
-        style.titleContainerStyle.titleTextColor = UIColor.red
-        style.titleContainerStyle.titleHighlightedTextColor = UIColor.white
-        
-        style.titleStyle.isShowMasks = true
-        style.titleStyle.maskColor = UIColor.orange.withAlphaComponent(0.5)
-
-        return style
-    }()
-
-    lazy var segment: JSSegmentControl = JSSegmentControl(segmentStyle: self.style)
-    lazy var titleView = JSTitleView(frame: CGRect(origin: .zero, size: CGSize(width: SCREEN_WIDTH, height: 50.0)), segmentStyle: self.style)
-    lazy var contentView = JSContentView(frame: CGRect(origin: .zero, size: CGSize(width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN - 50.0)), segmentStyle: self.style, parentViewController: self)
+    var titleContainerStyle = TitleContainerStyle()
+    var titleStyle = TitleStyle()
+    var contentStyle = ContentStyle()
+    
+    lazy var titleView = JSTitleView(style: self.titleStyle)
+    lazy var contentView = JSContentView(style: self.contentStyle, parent: self)
+    let segmentControl = JSSegmentControl()
     
     lazy var tableView: Test9TableView = {
         let tableView = Test9TableView(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), style: .grouped)
@@ -41,6 +34,7 @@ class Test9ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "identifier")
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header_identifier")
         return tableView
     }()
     
@@ -53,12 +47,24 @@ class Test9ViewController: UIViewController {
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.titleContainerStyle.titleFont = UIFont.systemFont(ofSize: 15.0)
+        self.titleContainerStyle.titleTextColor = UIColor.red
+        self.titleContainerStyle.titleHighlightedTextColor = UIColor.white
+        self.titleContainerStyle.edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
+        
+        self.titleStyle.isMaskHidden = false
+        self.titleStyle.spacing = 10.0
+        self.titleStyle.maskColor = UIColor.red
+        
+        self.segmentControl.title = self.titleView
+        self.segmentControl.content = self.contentView
+        self.segmentControl.dataSource = self
+        self.segmentControl.delegate = self
+        
+        self.contentView.frame = CGRect(x: 0.0, y: 0.0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN - 50.0)
+        
         self.view.addSubview(self.tableView)
-        
-        self.segment.dataSource = self
-        self.segment.delegate = self
-        
-        self.segment.configuration(titleView: self.titleView, contentView: self.contentView)
     }
 
     // MAKR:
@@ -84,7 +90,13 @@ extension Test9ViewController: UITableViewDataSource {
 extension Test9ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.titleView
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header_identifier")
+        header?.contentView.subviews.forEach { $0.removeFromSuperview() }
+        header?.contentView.addSubview(self.titleView)
+        self.titleView.snp.makeConstraints { (make) in
+            make.leading.trailing.centerY.equalTo(header!)
+        }
+        return header
     }
 }
 
@@ -111,10 +123,12 @@ extension Test9ViewController: JSSegmentControlDataSource {
     }
 
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        let title = segmentControl.dequeueReusableTitle(at: index)
-        title.segmentTitle = self.dataSource[index]
-        title.segmentBadge = 0
-        return title
+        var title = segmentControl.dequeueReusableTitle(at: index)
+        if title == nil {
+            title = JSTitleContainerView(style: self.titleContainerStyle)
+        }
+        title?.title = self.dataSource[index]
+        return title!
     }
 
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {

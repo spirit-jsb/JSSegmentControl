@@ -40,28 +40,62 @@ class Test5ViewController: UIViewController {
                        "normal_image": "parcels_voided_normal",
                        "selected_image": "parcels_voided_selected",
                        "color": "parcels_voided_selected_color"]]
-    var style = JSSegmentControlStyle()
+    
+    var titleContainerStyle = TitleContainerStyle()
+    var titleStyle = TitleStyle()
+    var contentStyle = ContentStyle()
+    
+    lazy var titleView = JSTitleView(style: self.titleStyle)
+    lazy var contentView = JSContentView(style: self.contentStyle, parent: self)
+    let segmentControl = JSSegmentControl()
     
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.style.titleContainerStyle.position = .top
-        self.style.titleContainerStyle.titleTextColor = UIColor.blue
-        self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.titleContainerStyle.titleFont = UIFont.systemFont(ofSize: 15.0)
+        self.titleContainerStyle.titleTextColor = UIColor.blue
+        self.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.titleContainerStyle.position = .top
+        self.titleContainerStyle.isBadgeHidden = false
+        self.titleContainerStyle.badgeBackgroundColor = UIColor.gray
+        self.titleContainerStyle.badgeStyle = .dot
         
-        self.style.titleStyle.isShowLines = true
-        self.style.titleStyle.titleHeight = 70.0
-        self.style.titleStyle.containerSize = CGSize(width: 65.0, height: 65.0)
-        self.style.titleStyle.lineColor = UIColor.orange
+        self.titleStyle.isAdjustContainerSize = false
+        self.titleStyle.containerWidth = 65.0
+        self.titleStyle.containerHeight = 65.0
+        self.titleStyle.spacing = 10.0
+        self.titleStyle.edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
         
-        let segment = JSSegmentControl(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
-        segment.dataSource = self
-        segment.delegate = self
-        self.view.addSubview(segment)
+        self.view.addSubview(self.titleView)
+        self.view.addSubview(self.contentView)
+        
+        self.segmentControl.title = titleView
+        self.segmentControl.content = contentView
+        self.segmentControl.dataSource = self
+        self.segmentControl.delegate = self
     }
     
     // MAKR:
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        self.titleView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.view)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            }
+            else {
+                make.top.equalTo(self.view).offset(TOP_MARGIN)
+            }
+            make.bottom.equalTo(self.contentView.snp.top)
+        }
+        
+        self.contentView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self.view)
+        }
+    }
+    
     override var shouldAutomaticallyForwardAppearanceMethods: Bool {
         return false
     }
@@ -74,18 +108,21 @@ extension Test5ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        let title = segmentControl.dequeueReusableTitle(at: index)
+        var title = segmentControl.dequeueReusableTitle(at: index)
+        if title == nil {
+            title = JSTitleContainerView(style: self.titleContainerStyle)
+        }
         
-        title.segmentTitle = self.dataSource[index]["title"]
-        title.segmentImage = UIImage(named: self.dataSource[index]["normal_image"]!)
-        title.segmentHighlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
+        title?.title = self.dataSource[index]["title"]
+        title?.image = UIImage(named: self.dataSource[index]["normal_image"]!)
+        title?.highlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
         if #available(iOS 11.0, *) {
-            title.segmentTitleHighlightedTextColor = UIColor(named: self.dataSource[index]["color"]!)
+            title?.highlightedTextColor = UIColor(named: self.dataSource[index]["color"]!)
         } else {
             // Fallback on earlier versions
         }
-        title.segmentBadge = index
-        return title
+        title?.badge = index
+        return title!
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {
