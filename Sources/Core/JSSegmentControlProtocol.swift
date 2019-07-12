@@ -6,22 +6,7 @@
 //  Copyright © 2018 Max. All rights reserved.
 //
 
-import Foundation
-
-@objc public protocol JSSegmentControlDataSource: NSObjectProtocol {
-    @objc func numberOfSegments() -> Int
-    @objc func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView
-    @objc func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController
-}
-
-@objc public protocol JSSegmentControlDelegate: NSObjectProtocol {
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didSelectAt index: Int)
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didDeselectAt index: Int)
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, controllerWillAppear controller: UIViewController, at index: Int)
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, controllerDidAppear controller: UIViewController, at index: Int)
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, controllerWillDisappear controller: UIViewController, at index: Int)
-    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, controllerDidDisappear controller: UIViewController, at index: Int)
-}
+import UIKit
 
 @objc protocol JSTitleDataSource: NSObjectProtocol {
     @objc func numberOfTitles() -> Int
@@ -39,13 +24,25 @@ import Foundation
 }
 
 @objc protocol JSContentDelegate: NSObjectProtocol {
-    @objc func contentSelectedAnimated(withProgress progress: CGFloat, from oldIndex: Int, to currentIndex: Int)
-    @objc func contentSelectedScrollAnimated(to currentIndex: Int)
-    @objc optional func content(_ content: JSContentView, controllerWillAppear controller: UIViewController, at index: Int)
-    @objc optional func content(_ content: JSContentView, controllerDidAppear controller: UIViewController, at index: Int)
-    @objc optional func content(_ content: JSContentView, controllerWillDisappear controller: UIViewController, at index: Int)
-    @objc optional func content(_ content: JSContentView, controllerDidDisappear controller: UIViewController, at index: Int)
+    @objc func content(selected index: Int)
+    @objc func content(selectedAnimation progress: CGFloat, from pastIndex: Int, to presentIndex: Int)
+    @objc optional func content(_ content: JSContentView, willAppear controller: UIViewController, forItemAt index: Int)
+    @objc optional func content(_ content: JSContentView, didAppear controller: UIViewController, forItemAt index: Int)
+    @objc optional func content(_ content: JSContentView, willDisappear controller: UIViewController, forItemAt index: Int)
+    @objc optional func content(_ content: JSContentView, didDisappear controller: UIViewController, forItemAt index: Int)
 }
 
+@objc public protocol JSSegmentControlDataSource: NSObjectProtocol {
+    @objc func numberOfSegments() -> Int
+    @objc func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView
+    @objc func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController
+}
 
-
+@objc public protocol JSSegmentControlDelegate: NSObjectProtocol {
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didSelectAt index: Int)
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didDeselectAt index: Int)
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, willAppear controller: UIViewController, forItemAt index: Int)
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didAppear controller: UIViewController, forItemAt index: Int)
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, willDisappear controller: UIViewController, forItemAt index: Int)
+    @objc optional func segmentControl(_ segmentControl: JSSegmentControl, didDisappear controller: UIViewController, forItemAt index: Int)
+}

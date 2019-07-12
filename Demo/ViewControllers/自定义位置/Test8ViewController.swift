@@ -13,33 +13,55 @@ class Test8ViewController: UIViewController {
 
     // MAKR:
     var dataSource = ["国内新闻", "新闻头条"]
-    var style = JSSegmentControlStyle()
     
-    lazy var segment = JSSegmentControl(segmentStyle: self.style)
-    lazy var titleView = JSTitleView(frame: CGRect(origin: .zero, size: CGSize(width: 160.0, height: 30.0)), segmentStyle: self.style)
-    lazy var contentView = JSContentView(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
+    var titleContainerStyle = TitleContainerStyle()
+    var titleStyle = TitleStyle()
+    var contentStyle = ContentStyle()
+    
+    lazy var titleView = JSTitleView(style: self.titleStyle)
+    lazy var contentView = JSContentView(style: self.contentStyle, parent: self)
+    let segmentControl = JSSegmentControl()
     
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.style.titleContainerStyle.titleTextColor = UIColor.red
-        self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.white
         
-        self.style.titleStyle.isTitleScroll = false
-        self.style.titleStyle.isShowMasks = true
-        self.style.titleStyle.maskColor = UIColor.red
+        self.titleContainerStyle.titleFont = UIFont.systemFont(ofSize: 15.0)
+        self.titleContainerStyle.titleTextColor = UIColor.red
+        self.titleContainerStyle.titleHighlightedTextColor = UIColor.white
+        self.titleContainerStyle.edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
         
-        self.segment.dataSource = self
-        self.segment.delegate = self
+        self.titleStyle.isScrollEnabled = false
+        self.titleStyle.isMaskHidden = false
+        self.titleStyle.spacing = 10.0
+        self.titleStyle.maskColor = UIColor.red
         
-        self.segment.configuration(titleView: self.titleView, contentView: self.contentView, completionHandle: {
-            self.navigationItem.titleView = self.titleView
-            self.view.addSubview(self.contentView)
-        })
+        self.navigationItem.titleView = self.titleView
+        self.view.addSubview(self.contentView)
+        
+        self.segmentControl.title = self.titleView
+        self.segmentControl.content = self.contentView
+        self.segmentControl.dataSource = self
+        self.segmentControl.delegate = self
+        
+        self.view.updateConstraintsIfNeeded()
     }
     
     // MAKR:
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        self.contentView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self.view)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            }
+            else {
+                make.top.equalTo(self.view).offset(TOP_MARGIN)
+            }
+        }
+    }
+    
     override var shouldAutomaticallyForwardAppearanceMethods: Bool {
         return false
     }
@@ -52,11 +74,12 @@ extension Test8ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        let title = segmentControl.dequeueReusableTitle(at: index)
-        
-        title.segmentTitle = self.dataSource[index]
-        title.segmentBadge = 0
-        return title
+        var title = segmentControl.dequeueReusableTitle(at: index)
+        if title == nil {
+            title = JSTitleContainerView(style: self.titleContainerStyle)
+        }
+        title?.title = self.dataSource[index]
+        return title!
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {

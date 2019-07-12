@@ -14,48 +14,90 @@ class Test7ViewController: UIViewController {
     // MAKR:
     var dataSource = [["title": "全部",
                        "normal_image": "parcels_all_normal",
-                       "selected_image": "parcels_all_selected"],
+                       "selected_image": "parcels_all_selected",
+                       "color": "parcels_all_selected_color"],
                       ["title": "待取件",
                        "normal_image": "parcels_pickup_normal",
-                       "selected_image": "parcels_pickup_selected"],
+                       "selected_image": "parcels_pickup_selected",
+                       "color": "parcels_pickup_selected_color"],
                       ["title": "待投递",
                        "normal_image": "parcels_dropOff_normal",
-                       "selected_image": "parcels_dropOff_selected"],
+                       "selected_image": "parcels_dropOff_selected",
+                       "color": "parcels_dropOff_selected_color"],
                       ["title": "待收货",
                        "normal_image": "parcels_receipt_normal",
-                       "selected_image": "parcels_receipt_selected"],
+                       "selected_image": "parcels_receipt_selected",
+                       "color": "parcels_receipt_selected_color"],
                       ["title": "运送中",
                        "normal_image": "parcels_transit_normal",
-                       "selected_image": "parcels_transit_selected"],
+                       "selected_image": "parcels_transit_selected",
+                       "color": "parcels_transit_selected_color"],
                       ["title": "已送达",
                        "normal_image": "parcels_served_normal",
-                       "selected_image": "parcels_served_selected"],
+                       "selected_image": "parcels_served_selected",
+                       "color": "parcels_served_selected_color"],
                       ["title": "已取消",
                        "normal_image": "parcels_voided_normal",
-                       "selected_image": "parcels_voided_selected"]]
-    var style = JSSegmentControlStyle()
-    lazy var segment = JSSegmentControl(frame: CGRect(x: 0.0, y: TOP_MARGIN, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TOP_MARGIN), segmentStyle: self.style, parentViewController: self)
+                       "selected_image": "parcels_voided_selected",
+                       "color": "parcels_voided_selected_color"]]
+
+    var titleContainerStyle = TitleContainerStyle()
+    var titleStyle = TitleStyle()
+    var contentStyle = ContentStyle()
+    
+    lazy var titleView = JSTitleView(style: self.titleStyle)
+    lazy var contentView = JSContentView(style: self.contentStyle, parent: self)
+    let segmentControl = JSSegmentControl()
     
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.style.titleContainerStyle.position = .top
-        self.style.titleContainerStyle.titleTextColor = UIColor.blue
-        self.style.titleContainerStyle.titleHighlightedTextColor = UIColor.red
-        self.style.titleContainerStyle.badgeOffset = 4.0
+        self.titleContainerStyle.titleFont = UIFont.systemFont(ofSize: 15.0)
+        self.titleContainerStyle.titleTextColor = UIColor.blue
+        self.titleContainerStyle.titleHighlightedTextColor = UIColor.red
+        self.titleContainerStyle.position = .top
         
-        self.style.titleStyle.isShowLines = true
-        self.style.titleStyle.titleHeight = 70.0
-        self.style.titleStyle.containerSize = CGSize(width: 65.0, height: 65.0)
-        self.style.titleStyle.lineColor = UIColor.orange
+        self.titleStyle.isAdjustMaskAndLineSize = false
+        self.titleStyle.isLineHidden = false
+        self.titleStyle.isAdjustContainerSize = false
+        self.titleStyle.containerWidth = 65.0
+        self.titleStyle.containerHeight = 65.0
+        self.titleStyle.spacing = 10.0
+        self.titleStyle.lineWidth = 45.0
+        self.titleStyle.lineHeight = 3.0
+        self.titleStyle.lineColor = UIColor.yellow
+        self.titleStyle.edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: -5.0, right: -5.0)
         
-        self.segment.dataSource = self
-        self.segment.delegate = self
-        self.view.addSubview(self.segment)
+        self.view.addSubview(self.titleView)
+        self.view.addSubview(self.contentView)
+        
+        self.segmentControl.title = titleView
+        self.segmentControl.content = contentView
+        self.segmentControl.dataSource = self
+        self.segmentControl.delegate = self
     }
     
     // MAKR:
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        self.titleView.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(self.view)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            }
+            else {
+                make.top.equalTo(self.view).offset(TOP_MARGIN)
+            }
+            make.bottom.equalTo(self.contentView.snp.top)
+        }
+        
+        self.contentView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalTo(self.view)
+        }
+    }
+    
     override var shouldAutomaticallyForwardAppearanceMethods: Bool {
         return false
     }
@@ -63,7 +105,7 @@ class Test7ViewController: UIViewController {
     // MAKR:
     @IBAction func rightBarButtonPressed(_ sender: UIBarButtonItem) {
         self.dataSource = self.dataSource.reversed()
-        self.segment.reloadData()
+        self.segmentControl.reload()
     }
 }
 
@@ -74,13 +116,21 @@ extension Test7ViewController: JSSegmentControlDataSource {
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, titleAt index: Int) -> JSTitleContainerView {
-        let title = segmentControl.dequeueReusableTitle(at: index)
+        var title = segmentControl.dequeueReusableTitle(at: index)
+        if title == nil {
+            title = JSTitleContainerView(style: self.titleContainerStyle)
+        }
         
-        title.segmentTitle = self.dataSource[index]["title"]
-        title.segmentImage = UIImage(named: self.dataSource[index]["normal_image"]!)
-        title.segmentHighlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
-        title.segmentBadge = index
-        return title
+        title?.title = self.dataSource[index]["title"]
+        title?.image = UIImage(named: self.dataSource[index]["normal_image"]!)
+        title?.highlightedImage = UIImage(named: self.dataSource[index]["selected_image"]!)
+        if #available(iOS 11.0, *) {
+            title?.highlightedTextColor = UIColor(named: self.dataSource[index]["color"]!)
+        } else {
+            // Fallback on earlier versions
+        }
+        title?.badge = index
+        return title!
     }
     
     func segmentControl(_ segmentControl: JSSegmentControl, contentAt index: Int) -> UIViewController {
