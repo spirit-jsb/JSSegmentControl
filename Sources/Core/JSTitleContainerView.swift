@@ -185,6 +185,7 @@ public class JSTitleContainerView: UIView {
             self.makeContainerConstraints()
         }
         self.makeBadgeConstraints()
+        self.setNeedsLayout()
         self.layoutIfNeeded()
     }
     

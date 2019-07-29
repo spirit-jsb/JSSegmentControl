@@ -89,6 +89,7 @@ public class JSTitleView: UIScrollView {
                 
         self.configSubview()
         
+        self.setNeedsUpdateConstraints()
         self.updateConstraintsIfNeeded()
         
         self.setContentOffset(.zero, animated: false)
@@ -168,6 +169,7 @@ public class JSTitleView: UIScrollView {
     private func makeConstraints() {
         self.makeContainerConstraints()
         self.makeTitleContainerConstraints()
+        self.setNeedsLayout()
         self.layoutIfNeeded()
     }
     
