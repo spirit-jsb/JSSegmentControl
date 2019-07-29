@@ -58,7 +58,7 @@ func configuration(titleView: JSTitleView, contentView: JSContentView, completio
 `JSSegmentControl` 可以通过 [CocoaPods](https://cocoapods.org) 获得。安装只需要在你项目的 `Podfile` 中添加如下字段：
 
 ```ruby
-pod 'JSSegmentControl', '~> 1.2.5'
+pod 'JSSegmentControl', '~> 1.2.6'
 ```
 
 ## 待完成
