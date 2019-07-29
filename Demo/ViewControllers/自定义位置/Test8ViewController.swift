@@ -44,7 +44,7 @@ class Test8ViewController: UIViewController {
         self.segmentControl.dataSource = self
         self.segmentControl.delegate = self
         
-        self.view.updateConstraintsIfNeeded()
+        self.view.setNeedsUpdateConstraints()
     }
     
     // MAKR:

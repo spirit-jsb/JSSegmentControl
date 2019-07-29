@@ -46,6 +46,11 @@ class Test3ViewController: UIViewController {
         self.segmentControl.delegate = self
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.segmentControl.selected(index: 2)
+    }
+    
     // MAKR:
     override func updateViewConstraints() {
         super.updateViewConstraints()
