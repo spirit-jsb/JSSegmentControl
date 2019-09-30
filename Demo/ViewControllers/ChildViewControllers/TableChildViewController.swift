@@ -1,52 +1,35 @@
 //
-//  Child1ViewController.swift
+//  TableChildViewController.swift
 //  JSSegmentControl-Demo
 //
-//  Created by Max on 2018/12/20.
-//  Copyright © 2018 Max. All rights reserved.
+//  Created by Max on 2019/9/24.
+//  Copyright © 2019 Max. All rights reserved.
 //
 
 import UIKit
 
-class Child1ViewController: UIViewController {
+class TableChildViewController: UIViewController {
 
     // MARK:
+    private let identifier = "com.sibo.jian.segment.tableview.child"
+    
+    weak var childScrollDelegate: ChildScrollViewDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View Did Load \(#file)")
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "identifier")
-    }
-    
-    // MARK:
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("View Will Appear \(#file)")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("View Did Appear \(#file)")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("View Will Disappear \(#file)")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("View Did Disappear \(#file)")
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.identifier)
     }
 
-    deinit {
-        print("Deinit \(#file)")
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
 
-extension Child1ViewController: UITableViewDataSource {
+extension TableChildViewController: UITableViewDataSource {
     
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,14 +37,14 @@ extension Child1ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "identifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath)
         cell.contentView.backgroundColor = UIColor.white
         cell.textLabel?.text = "Row ---- \(indexPath.row)"
         return cell
     }
 }
 
-extension Child1ViewController: UITableViewDelegate {
+extension TableChildViewController: UITableViewDelegate {
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -82,5 +65,13 @@ extension Child1ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension TableChildViewController: UIScrollViewDelegate {
+    
+    // MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.childScrollDelegate?.childScrollViewDidScroll(scrollView)
     }
 }
