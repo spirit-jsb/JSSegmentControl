@@ -23,14 +23,3 @@ extension Array {
         }
     }
 }
-
-extension UIView {
-    
-    // MARK:
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let shape = CAShapeLayer()
-        shape.path = maskPath.cgPath
-        self.layer.mask = shape
-    }
-}

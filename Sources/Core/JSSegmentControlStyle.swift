@@ -33,8 +33,6 @@ public struct TitleStyle {
     public var isZoomEnabled: Bool = false
     
     /// 是否开启滚动效果，默认值为 true
-    ///
-    /// - Warning: 当 isScrollEnabled 设置为 false 时，container 强制平分宽度，无视其他属性设置。
     public var isScrollEnabled: Bool = true
     
     /// 是否开启弹性效果，默认值为 true
@@ -42,6 +40,11 @@ public struct TitleStyle {
     
     /// edge insets, 默认值为 UIEdgeInsets.zero
     public var edgeInsets: UIEdgeInsets = UIEdgeInsets.zero
+    
+    /// 是否强制平分 container 尺寸，默认值为 false
+    ///
+    /// - Warning: 当 isForceEqualContainerSize 设置为 true 时，container 强制平分宽度，无视其他属性设置。
+    public var isForceEqualContainerSize: Bool = false
     
     /// 是否自适应调整 container 尺寸，默认值为 true
     ///
@@ -135,9 +138,6 @@ public struct TitleContainerStyle {
 }
 
 public struct ContentStyle {
-    
-    /// 背景颜色，默认值为 nil
-    public var backgroundColor: UIColor? = nil
     
     /// 是否开启滚动效果，默认值为 true
     public var isScrollEnabled: Bool = true
