@@ -18,6 +18,10 @@ public class JSContentView: UICollectionView {
     weak var contentDataSource: JSContentDataSource?
     weak var contentDelegate: JSContentDelegate?
     
+    var presentChildController: UIViewController? {
+        return self.childControllers[self.presentIndex]
+    }
+    
     private weak var parent: UIViewController!
     
     private var pastIndex: Int = 0

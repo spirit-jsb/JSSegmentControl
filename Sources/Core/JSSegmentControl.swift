@@ -21,6 +21,10 @@ public class JSSegmentControl: NSObject {
     public let titleView: JSTitleView
     public let contentView: JSContentView
     
+    public var presentContent: UIViewController? {
+        return self.contentView.presentChildController
+    }
+     
     public weak var dataSource: JSSegmentControlDataSource!
     public weak var delegate: JSSegmentControlDelegate!
         
