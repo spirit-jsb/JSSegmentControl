@@ -8,13 +8,6 @@
 
 import UIKit
 
-func debugLog(items: String = "", _ file: String = #file, _ line: Int = #line, _ function: String = #function) {
-    #if DEBUG
-    let tmpFile = file.split(separator: "/").last ?? "null"
-    NSLog(">>>> \n FILE: \(tmpFile), LINE: \(line), FUNCTION: \(function) \n \(items) \n <<<<")
-    #endif
-}
-
 public class JSSegmentControl: NSObject {
     
     // MARK:
