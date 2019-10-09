@@ -8,6 +8,13 @@
 
 import UIKit
 
+func debugLog(items: String = "", _ file: String = #file, _ line: Int = #line, _ function: String = #function) {
+    #if DEBUG
+    let tmpFile = file.split(separator: "/").last ?? "null"
+    NSLog(">>>> \n FILE: \(tmpFile), LINE: \(line), FUNCTION: \(function) \n \(items) \n <<<<")
+    #endif
+}
+
 extension Array {
     
     // MARK:
@@ -21,16 +28,5 @@ extension Array {
         get {
             return self.indices ~= index ? self[index] : nil
         }
-    }
-}
-
-extension UIView {
-    
-    // MARK:
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let shape = CAShapeLayer()
-        shape.path = maskPath.cgPath
-        self.layer.mask = shape
     }
 }

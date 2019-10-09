@@ -11,12 +11,16 @@ import UIKit
 public class JSContentView: UICollectionView {
     
     // MARK:
-    private let style: ContentStyle
+    private let contentStyle: ContentStyle
     
     private let identifier = "com.sibo.jian.segment.content"
     
     weak var contentDataSource: JSContentDataSource?
     weak var contentDelegate: JSContentDelegate?
+    
+    var presentChildController: UIViewController? {
+        return self.childControllers[self.presentIndex]
+    }
     
     private weak var parent: UIViewController!
     
@@ -29,8 +33,8 @@ public class JSContentView: UICollectionView {
     private var childControllers: [Int: UIViewController] = [Int: UIViewController]()
     
     // MARK:
-    public init(style: ContentStyle, parent: UIViewController) {
-        self.style = style
+    public init(contentStyle: ContentStyle, parent: UIViewController) {
+        self.contentStyle = contentStyle
         self.parent = parent
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -40,7 +44,7 @@ public class JSContentView: UICollectionView {
         
         super.init(frame: .zero, collectionViewLayout: flowLayout)
         
-        self.configView()
+        self.constructView(contentStyle: contentStyle)
         self.addNotification()
     }
     
@@ -50,22 +54,11 @@ public class JSContentView: UICollectionView {
     
     deinit {
         self.removeNotification()
-        #if DEBUG
-        let function = #function
-        let file = #file.split(separator: "/").last ?? "null"
-        let line = #line
-        print(file, line, function)
-        #endif
+        debugLog()
     }
     
     // MARK:
-    public func reload() {
-        self.childControllers.values.forEach { [unowned self] (childController) in
-            self.removeChildController(childController)
-        }
-        
-        self.childControllers.removeAll()
-        
+    func reload() {
         self.pastIndex = 0
         self.presentIndex = 0
         self.isFirstLoading = true
@@ -73,9 +66,14 @@ public class JSContentView: UICollectionView {
         self.isScrolledMorePage = false
         self.pastOffsetX = 0.0
         
-        self.reloadData()
+        self.childControllers.values.forEach { [weak self] (childController) in
+            self?.removeChildController(childController)
+        }
+        self.childControllers.removeAll()
         
-        self.selected(index: 0)
+        self.reloadData()
+                
+        self.setContentOffset(.zero, animated: false)
     }
     
     func dequeueReusableContent(at index: Int) -> UIViewController? {
@@ -99,41 +97,41 @@ public class JSContentView: UICollectionView {
         }
         
         let offsetX = CGFloat(index) * self.bounds.width
-        
         self.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: !self.isScrolledMorePage)
     }
     
     // MAKR:
-    private func configView() {
+    private func constructView(contentStyle: ContentStyle) {
         guard !self.parent.shouldAutomaticallyForwardAppearanceMethods else {
             fatalError("请重写 \(self.parent.description) 的 shouldAutomaticallyForwardAppearanceMethods 函数，并返回 false")
         }
         
-        self.backgroundColor = self.style.backgroundColor
+        self.backgroundColor = UIColor.clear
         self.dataSource = self
         self.delegate = self
-        self.bounces = self.style.isBouncesEnabled
+        self.bounces = contentStyle.isBouncesEnabled
         self.alwaysBounceHorizontal = true
         self.isPagingEnabled = true
-        self.isScrollEnabled = self.style.isScrollEnabled
+        self.isScrollEnabled = contentStyle.isScrollEnabled
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.scrollsToTop = false
+        if #available(iOS 11.0, *) {
+            self.contentInsetAdjustmentBehavior = .never
+        }
         self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: self.identifier)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func configChildViewController(to containerView: UICollectionViewCell, forItemAt index: Int) {
-        guard self.presentIndex == index else {
+    private func constructChildController(to containerView: UICollectionViewCell, forItemAt index: Int) {
+        guard self.presentIndex == index, let strongContentDataSource = self.contentDataSource else {
             return
         }
         
         var childController = self.childControllers[index]
-        
         if childController == nil {
-            childController = self.contentDataSource?.content(self, containerAt: index)
+            childController = strongContentDataSource.contentView(self, containerAt: index)
             self.childControllers[index] = childController
-            self.presentIndex = index
         }
         
         if childController is UINavigationController {
@@ -150,8 +148,8 @@ public class JSContentView: UICollectionView {
         else {
             if self.isForbidAdjustPosition, self.isScrolledMorePage {
                 self.willDisappear(index: self.pastIndex)
-                self.willAppear(index: self.presentIndex)
-                self.didAppear(index: self.presentIndex)
+                self.willAppear(index: index)
+                self.didAppear(index: index)
                 self.didDisappear(index: self.pastIndex)
             }
             else {
@@ -189,28 +187,28 @@ public class JSContentView: UICollectionView {
     private func willAppear(index: Int) {
         if let controller = self.childControllers[index] {
             controller.beginAppearanceTransition(true, animated: false)
-            self.contentDelegate?.content?(self, willAppear: controller, forItemAt: index)
+            self.contentDelegate?.contentView(self, willAppear: controller, forItemAt: index)
         }
     }
     
     private func didAppear(index: Int) {
         if let controller = self.childControllers[index] {
             controller.endAppearanceTransition()
-            self.contentDelegate?.content?(self, didAppear: controller, forItemAt: index)
+            self.contentDelegate?.contentView(self, didAppear: controller, forItemAt: index)
         }
     }
     
     private func willDisappear(index: Int) {
         if let controller = self.childControllers[index] {
             controller.beginAppearanceTransition(false, animated: false)
-            self.contentDelegate?.content?(self, willDisappear: controller, forItemAt: index)
+            self.contentDelegate?.contentView(self, willDisappear: controller, forItemAt: index)
         }
     }
     
     private func didDisappear(index: Int) {
         if let controller = self.childControllers[index] {
             controller.endAppearanceTransition()
-            self.contentDelegate?.content?(self, didDisappear: controller, forItemAt: index)
+            self.contentDelegate?.contentView(self, didDisappear: controller, forItemAt: index)
         }
     }
     
@@ -237,7 +235,7 @@ extension JSContentView: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.identifier, for: indexPath)
-        cell.contentView.backgroundColor = self.backgroundColor
+        cell.contentView.backgroundColor = UIColor.clear
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         return cell
     }
@@ -251,10 +249,9 @@ extension JSContentView: UICollectionViewDelegate {
     
     // MARK: UICollectionViewDelegate
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.configChildViewController(to: cell, forItemAt: indexPath.item)
+        self.constructChildController(to: cell, forItemAt: indexPath.item)
     }
     
-    #warning("生命周期管理异常")
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if !self.isForbidAdjustPosition {
             if self.pastIndex == indexPath.item {
@@ -266,15 +263,14 @@ extension JSContentView: UICollectionViewDelegate {
                 itemController?.beginAppearanceTransition(false, animated: false)
                 let pastController = self.childControllers[self.pastIndex]
                 pastController?.beginAppearanceTransition(true, animated: false)
+                
                 self.didAppear(index: self.pastIndex)
                 self.didDisappear(index: indexPath.item)
             }
         }
-        else {
-            if !self.isScrolledMorePage {
-                self.didAppear(index: self.presentIndex)
-                self.didDisappear(index: self.pastIndex)
-            }
+        else if !self.isScrolledMorePage {
+            self.didAppear(index: self.presentIndex)
+            self.didDisappear(index: indexPath.item)
         }
     }
 }
@@ -291,7 +287,10 @@ extension JSContentView: UIScrollViewDelegate {
     
     // MARK: UIScrollViewDelegate
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.isForbidAdjustPosition || scrollView.contentOffset.x <= 0.0 || scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.bounds.width {
+        if self.isForbidAdjustPosition ||
+            scrollView.contentOffset.x <= 0.0 ||
+            scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.bounds.width
+        {
             return
         }
         
@@ -323,7 +322,7 @@ extension JSContentView: UIScrollViewDelegate {
             return
         }
         
-        self.contentDelegate?.content(selectedAnimation: progress, from: self.pastIndex, to: self.presentIndex)
+        self.contentDelegate?.contentView(selectedAnimation: progress, from: self.pastIndex, to: self.presentIndex)
     }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -332,10 +331,10 @@ extension JSContentView: UIScrollViewDelegate {
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let presentIndex = Int(scrollView.contentOffset.x / self.bounds.width)
+        let presentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         if self.presentIndex != presentIndex {
             self.presentIndex = presentIndex
         }
-        self.contentDelegate?.content(selected: presentIndex)
+        self.contentDelegate?.contentView(selected: presentIndex)
     }
 }
