@@ -25,6 +25,7 @@ enum DemoRow {
     case centerPosition
     case reload
     case defaultIndex
+    case presentContent
     case customTitleView
     case customTableView
     case customScrollView
@@ -43,6 +44,7 @@ enum DemoRow {
         case .centerPosition: return "Center Position"
         case .reload: return "Reload"
         case .defaultIndex: return "Default Index"
+        case .presentContent: return "Present Content"
         case .customTitleView: return "Custom Title View"
         case .customTableView: return "Custom Table View"
         case .customScrollView: return "Custom Scroll View"
@@ -63,6 +65,7 @@ enum DemoRow {
         case .centerPosition: return CenterPositionViewController()
         case .reload: return ReloadViewController()
         case .defaultIndex: return DefaultIndexViewController()
+        case .presentContent: return PresentContentViewController()
         case .customTitleView: return CustomTitleViewViewController()
         case .customTableView: return CustomTableViewViewController()
         case .customScrollView: return CustomScrollViewViewController()
@@ -83,6 +86,7 @@ class ViewController: UIViewController {
         [.leftPosition, .topPosition, .rightPosition, .bottomPosition, .centerPosition],
         [.reload],
         [.defaultIndex],
+        [.presentContent],
         [.customTitleView, .customTableView, .customScrollView]
     ]
     

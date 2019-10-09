@@ -45,6 +45,7 @@
 		50D183D821C3C3D900A5CB99 /* JSTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D183D721C3C3D900A5CB99 /* JSTitleView.swift */; };
 		50D914CC21C3E9A800640A5D /* JSSegmentControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D914CB21C3E9A800640A5D /* JSSegmentControlProtocol.swift */; };
 		50E5146F22D4426400E8C7A9 /* JSSegmentControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E5146E22D4426400E8C7A9 /* JSSegmentControl+Extension.swift */; };
+		50E9CE0B234874BD000918D6 /* PresentContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E9CE0A234874BD000918D6 /* PresentContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		50D183D721C3C3D900A5CB99 /* JSTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSTitleView.swift; sourceTree = "<group>"; };
 		50D914CB21C3E9A800640A5D /* JSSegmentControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSSegmentControlProtocol.swift; sourceTree = "<group>"; };
 		50E5146E22D4426400E8C7A9 /* JSSegmentControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSSegmentControl+Extension.swift"; sourceTree = "<group>"; };
+		50E9CE0A234874BD000918D6 /* PresentContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				50861AE6233B3E8100743C30 /* Position */,
 				50861AF3233B708900743C30 /* Reload */,
 				50861AF4233B709200743C30 /* DefaultIndex */,
+				50E9CE0923487491000918D6 /* PresentContent */,
 				5084FEF3233BA82A002B3D44 /* CustomLocation */,
 			);
 			path = ViewControllers;
@@ -333,6 +336,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		50E9CE0923487491000918D6 /* PresentContent */ = {
+			isa = PBXGroup;
+			children = (
+				50E9CE0A234874BD000918D6 /* PresentContentViewController.swift */,
+			);
+			path = PresentContent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -449,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50861AEE233B3F8A00743C30 /* BottomPositionViewController.swift in Sources */,
+				50E9CE0B234874BD000918D6 /* PresentContentViewController.swift in Sources */,
 				50409C4E21D0E1A300A8A3A9 /* ViewController.swift in Sources */,
 				5084FEF7233C576A002B3D44 /* CustomTableViewViewController.swift in Sources */,
 				50A91765233A010300BA50A8 /* LineAndMaskViewController.swift in Sources */,
